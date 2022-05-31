@@ -9,7 +9,6 @@
 }
 
 body {
-    background-image: url(SMB.jpg);
     background-color: #ddd;
     background-position: center;
     background-size: cover;
@@ -63,6 +62,7 @@ body {
     font-weight: bolder;
 }
 .sec{
+  text-align:middle;
   float: left;
   width: fit-content 7;
   background:green;
