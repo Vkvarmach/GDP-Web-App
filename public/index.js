@@ -12,13 +12,14 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC2pKTrou5HNd3HCsOB_DwAq8DtX2pp0ak",
-  authDomain: "gdp-web-app.firebaseapp.com",
-  projectId: "gdp-web-app",
-  storageBucket: "gdp-web-app.appspot.com",
-  messagingSenderId: "528474869207",
-  appId: "1:528474869207:web:0b5ed70aed04915af78f92",
-  measurementId: "G-LZDRVYC083"
+  apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+  authDomain: "smart-mobility-ios.firebaseapp.com",
+  databaseURL: "https://smart-mobility-ios-default-rtdb .firebaseio.com",
+  projectId: "smart-mobility-ios",
+  storageBucket: "smart-mobility-ios.appspot.com",
+  messagingSenderId: "727144855934",
+  appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+  measurementId: "G-5SNWQ6NS22"
 };
 
 // Initialize Firebase

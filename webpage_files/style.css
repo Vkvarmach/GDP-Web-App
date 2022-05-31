@@ -1,0 +1,68 @@
+.SM{
+    text-align: center;
+    font-size:xx-large;
+    background-color: green;
+    color: white;
+}
+
+body {
+    
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+    background-repeat: no-repeat;
+}
+.button1{
+    background-color: green;
+    background-size: 200px 100px;
+    color: white;
+    padding: 15px 32px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.button2{
+    background-color: green;
+    background-size: 200px 100px;
+    padding: 15px 32px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.button3{
+    background-color: green;
+    background-size: 200px 100px;
+    padding: 15px 32px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.button4{
+    background-color: green;
+    background-size: 200px 100px;
+    padding: 15px 32px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.button5{
+    background-color: green;
+    background-size: 200px 100px;
+    padding: 15px 32px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.M_Riders{
+ background-size: contain,cover;
+ background-color: green;
+ border: 1px solid green;
+ margin: 50px;
+ padding: 15px 32px;
+ color: white;
+ font-size: 30px;
+ font-weight: bolder;
+}
