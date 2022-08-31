@@ -16,60 +16,6 @@ body {
     height: 109vh;
     background-repeat: no-repeat;
 }
-.button1{
-   text-align: center;
-   background-color: green;
-   color: white;
-   padding: 32px;
-   width: 100%;
-   font-size: 20px;
-   font-weight: bolder;
-}
-
-.button2{
-    
-    background-color: green;
-    padding: 32px;
-    width: 100%;
-    color: white;
-    font-size: 20px;
-    font-weight: bolder;
-}
-
-.button3{
-    background-color: green;
-    padding: 32px;
-    color: white;
-    width: 100%;
-    font-size: 20px;
-    font-weight: bolder;
-}
-
-.button4{
-    background-color: green;
-    padding: 32px;
-    color: white;
-    width: 100%;
-    font-size: 20px;
-    font-weight: bolder;
-}
-
-.button5{
-    background-color: green;
-    padding: 32px;
-    color: white;
-    width: 100%;
-    font-size: 20px;
-    font-weight: bolder;
-}
-.sec{
-  text-align:middle;
-  float: left;
-  width: fit-content 7;
-  background:green;
-  padding: 20px;
-
-}
 
 /* for riders page*/
 .M_Riders{
