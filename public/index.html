@@ -6,6 +6,7 @@
     <title>webpage </title>
     
     <script type="module" src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
 </head>
@@ -25,10 +26,37 @@
     <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">Smart Mobility</text>
     Sorry, your browser does not support inline SVG.
   </svg>
+
+
+
+
+
+</style>
+</head>
+<body>
+  
+
+
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
     
-   
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <section class="sec">
     <link rel="stylesheet" href="style.css">
+    
+    
     <a href="m_riders.html" >
       <button  class="button button1">Manage Riders   </button>
     </a>
@@ -47,6 +75,7 @@
     </a> 
     <br>
 </section>
+</div>
 </body>
 
 </html>
