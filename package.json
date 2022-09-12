@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/nameissatheesh/GDP-Web-App#readme",
   "dependencies": {
-    "firebase": "^9.9.4"
+    "firebase": "^9.8.2"
   }
 }
