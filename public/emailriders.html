@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="emailriders.css" />
+
+    <title><br>m_riders_Email</br></title>
+   
+
+</head>
+<body>
+
+    <h1> Contact Riders</h1>
+    <p><b>Send an Email to Rider</b></p>
+    <form method="POST" class="contact-form">
+        <label for="Email"><b>Email Id</b></label><br>
+        <input class="email" type="email" placeholder="Email" required /><br>
+        <label for="Subject"><b>Message</b></label><br>
+        <textarea
+        class="Subject"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="message"
+        required
+        ></textarea> <br/>
+        <input type="text" id="sub"  placeholder="Subject">
+        <button type="submit" class="button">Submit</button>
+      </form>
+      
+
+ <div class="infoResults"></div>
+ <script src="https://smtpjs.com/v3/smtp.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
+ <script src="rider_Email.js"></script>
+
+    </body>
+</html>

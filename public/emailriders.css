@@ -1,0 +1,24 @@
+
+body {
+
+    background-color: #ddd;
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+    background-repeat: no-repeat;
+}
+h1{
+    background-color:green;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+.button {
+    background-color:green;
+    color: white;
+    padding: 10px 18px;
+    margin: 6px 0;
+    border: none;
+    cursor: pointer;
+
+  }
