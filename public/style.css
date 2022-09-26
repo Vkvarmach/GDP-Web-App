@@ -4,15 +4,81 @@
 }
 
 h1 {
-  font-family:
-  color: white;
-  width: 100%;
-  height: 40px;
-  display: block;
-  text-align: center;
+  font-family:'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  height: 60px;
+  width: auto;
+  color: whitesmoke;
   background-color: green;
-  padding-top: 25px;
-  padding-bottom: 20px;
-  cursor: pointer;
 
 }
+
+.sec{
+  position: relative;
+  top: 80px;
+  padding-left: 50px;
+
+}
+.button{
+
+  border: 0;
+  font-size:x-large;
+  font-weight: 400;
+  padding: 10px 10px;
+  
+}
+.button12{
+  background-color: green;
+  color: white;
+}
+.button12:hover{
+  background: rgb(87, 208, 87);
+}
+
+.button2{
+  background-color: green;
+  color: white;
+}
+.button2:hover{
+  background: rgb(87, 208, 87);
+}
+.button3{
+  background-color: green;
+  color: white;
+}
+.button3:hover{
+  background: rgb(87, 208, 87);
+}
+.button4{
+  background-color: green;
+  color: white;
+}
+.button4:hover{
+  background: rgb(87, 208, 87);
+}
+.button5{
+  background-color: green;
+  color: white;
+}
+.button5:hover{
+  background: rgb(87, 208, 87);
+}
+.aboutus{
+  position: relative;
+  bottom: 380px;
+  padding-left: 400px;
+  font-size: large;
+
+}
+h4{
+  color: darkgreen;
+}
+.image{
+  position: relative;
+  margin-right: auto;
+  bottom: 400px;
+  padding-left: 290px;
+  width:0px;
+  height: 00px;
+  
+}
+

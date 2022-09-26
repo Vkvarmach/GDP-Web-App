@@ -9,6 +9,10 @@ body {
 }
 h1{
     background-color:green;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    text-align: center;
+    font-size:xx-large;
     padding: 14px 20px;
     margin: 8px 0;
     cursor: pointer;
