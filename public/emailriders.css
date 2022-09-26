@@ -1,28 +1,66 @@
-
-body {
-
-    background-color: #ddd;
-    background-position: center;
-    background-size: cover;
-    height: 109vh;
-    background-repeat: no-repeat;
+* {
+    margin: auto;
+    padding: auto;
 }
-h1{
-    background-color:green;
-    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+body{
+    
+    background-color:lightgreen;
+}
+
+h1 {
+    font-family:'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 60px;
+    width: auto;
+    color: whitesmoke;
+    background-color: green;
+    text-align: center;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 450px;
+    height: 40px;
+    background-color: green;
     color: white;
     text-align: center;
-    font-size:xx-large;
-    padding: 14px 20px;
-    margin: 8px 0;
-    cursor: pointer;
-}
-.button {
-    background-color:green;
-    color: white;
-    padding: 10px 18px;
-    margin: 6px 0;
-    border: none;
+    padding-bottom: 10px;
     cursor: pointer;
 
-  }
+}
+
+
+
+.form-container{
+    width: 50%;
+    height: 40vh;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow:  0px 5px 25px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: left;
+    flex-direction:column;
+}
+
+.contact-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: left;
+    flex-direction: column;
+}
+
+.button1{
+    background-color: green;
+    padding: 10px;
+    width: 10%;
+    font-size: 12px;
+    font-weight: bolder;
+
+}
+
+::placeholder{
+    font-size: 16px;
+}

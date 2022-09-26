@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smart-mobility-ios",
+  "private_key_id": "262f7b8096df772a8db6181568b21c7f950ce8ce",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDA6uLZuZAqgQCn\nqKO7M/jAM+/OqeXcfZvbJzyCFUEJZNIMBGKVcNPvdGB7lWLxgc73r4g493ZFROMl\nCH78K6XtgZwjUc2obiC9jX95VdJH7hLCDPwaw5laA40Jv5VVUhxThFyYpw06+YJr\nz5GzOQqHNsqjTr0m7PGGB15P0RwoSiwUrlTa4NUl4SRfOEPNDN4mCb98kkZkzmyw\nLKgI5J7ajURp4QsM8xnwiU0XU4dLnZJZPJimW7r9IK0Y8KjDFrM9ivK85W0pldMo\nBXFzsjwsr9U7sQVi92NHm16+e5tuAJMg9JWno2E6YKzmnIF8dr7zBJwoWgGTGJo/\nig8Nb/UDAgMBAAECggEABSg0kKsAA4ZKA9Xsmf6Wmc1OMnOZhoVTFFfnYkDV6Zko\n3SXNt/6LyGYhzwCA0fha3s6Wg27Dx9SwYg37KMBrYb7Fc2WvosynbdUyt/O1Adg+\nVNc4cugjhtGNVtoovifu1lhsZYrZGXq0vuYN867Ev366ZeAxVB78ZQQvRCn1Ozxx\niDJMXvaL3UIXE+ei6V8vzgYby6Qu1lOKrvWzhQ5hemmidoF5/oj6OSAdJy91XOpG\nNwEMwKtBh4YrgP+BOttlsfKZuvmEQfpLsFr1s4skdSGBIa7LaU7/9XAvxxDj/eWY\n1P88zpPOsdOKwMFAQxeSImYXoqAVeNJLOaTQrnL8CQKBgQD7DQdrU2gLeBpTiXsj\nYsc7M4z5Shc4zXAoZLy3ilLI/MZnjvrOO6Qr1yBTjMtJIL2p26F7KLNMRcoLLGNo\niz1FivzUxvDPFqmFuY9H07rpOLGqmon1UixBtsz7ZK22aLFm4MO0feXOlTltj/Gw\n+2aLx0pDVyPvRRevRfWmM4Z3ywKBgQDEuHoq1wx+Loo9X/5d5q7MspoROh0WbjMb\nO8GS7TNZsMZZPSVPrSrfY2TSW1wAcsIkcdCMg33BhyaYXBCCtEbbmxxyoQgMpj2A\nqE4jFICjqvz9kH6mlxsAWipnl99LvwKkpMxNJRmaIVB0E9XjMHVLprClQsUvuI1g\n7XILKuSgqQKBgAvHgbiccj5PhVS0F64CXXy+n3e27T4CDagnid9Gwzmg+qIzSDtS\n+xH/hwnEimlE+wE0R/BiaX9DqwY5L/Tgy6AutEw7hWMCGjQnD7z8B0IYIeXyWFTF\nZUQ0EowdHjV31hMQqr4WRikaQVaNsXZvZVFbqXVdalc4s7LKoosI0d9fAoGBAJVK\niyxH16tLFo5Nc3U/xBiE0neQatLC/vYD+3vNl9LRXTYMOWymNoshmzopK0EL1lpi\nJar9f0qHjrrB46XNupietpAntTwkTTh+gg4NWTLcaPLl3bf/pPY3d0b28vdBFnhs\nuL8zEKLv9WaiRwgLlni7IAPLEGqO3HxattnSy39BAoGBAIzC0Se/fZt1YLBXEtAN\nfBq5MdfYvhhphoqzmySyZm7hT0J3K4X6a39DA21zKOi9XknhUg3z8UgIQLrxFO2H\nztLH/OSqzmWVScexZjpKPWHrS+XHk1UJevhDTLhquxvEeK6gyXFKl2jM/IArVlkc\n11637W39VYaJk/VewN/0M6lA\n-----END PRIVATE KEY-----\n",
+  "client_email": "smart-mobility-ios@appspot.gserviceaccount.com",
+  "client_id": "111850426775737931312",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/smart-mobility-ios%40appspot.gserviceaccount.com"
+}
