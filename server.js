@@ -1,3 +1,33 @@
+/* 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  //****************** add your configaration here *******************
+  apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+authDomain: "smart-mobility-ios.firebaseapp.com",
+databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+projectId: "smart-mobility-ios",
+storageBucket: "smart-mobility-ios.appspot.com",
+messagingSenderId: "727144855934",
+appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+measurementId: "G-5SNWQ6NS22"
+
+};
+
+  // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+   const database = getDatabase(app);
+
+
+
+
+
+
 const { initializeApp } = require('firebase-admin/app');
 import { initializeApp } from 'firebase-admin/app';
 
@@ -10,17 +40,17 @@ var transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: 'chunchuvijaykumar96@gmail.com',
+        user: 'vijayusa146@gmail.com',
         pass: 'hkikbhbdhdgsqcjq'
     }
 });
 
 
 exports.sendEmail = functions.firestore
-    .document('https://console.firebase.google.com/u/2/project/smart-mobility-ios/firestore/data/~2Fadmin-user~2Fu38qYv9uqaPPquublCJa/{chunchuvijaykumar96@gmail.com}')
+    .document('riders/{riderID}}')
     .onCreate((snap, context) => {
         const mailOptions = {
-            from: `chunchuvijaykumar96@gmail.com`,
+            from: `vijayusa146@gmail.com`,
             to: snap.data().email,
             subject: 'contact form message',
             html: `<h1>From Smart Mobility</h1>
@@ -40,7 +70,7 @@ exports.sendEmail = functions.firestore
 
 exports.sendMailOverHTTP = functions.https.onRequest((req, res) => {
     const mailOptions = {
-        from: `chunchuvijaykumar96@gmail.com`,
+        from: `vijayusa146@gmail.com`,
         to: req.body.email,
         subject: 'From Smart Mobility',
         html: `<h1>From admin page</h1>
@@ -59,15 +89,15 @@ exports.sendMailOverHTTP = functions.https.onRequest((req, res) => {
     });
 
 });
+*/
 
 
-
-/* 
+ 
 const express = require('express');
 const app = express();
 
 const nodemailer = require('nodemailer');
-const PORT = process.env.PORT || 5051;
+const PORT = process.env.PORT || 5000 ;
 
 //Middleware
 
@@ -84,15 +114,15 @@ app.post('/',(req,res)=>{
     const transporter = nodemailer.createTransport({
        service: 'gmail',
        auth: {
-            user: 'chunchuvijaykumar96@gmail.com',
-            pass: 'hkikbhbdhdgsqcjq'
+            user: 'vijayusa146@gmail.com',
+            pass: 'pvktjpklezqqqmvi'
        }
     })
 
     const mailOptions = {
-        from: 'chunchuvijaykumar96@gmail.com',
+        from: 'vijayusa146@gmail.com',
         to: req.body.email ,
-        subject: `Message from chunchuvijaykumar96@gmail.com: ${req.body.subject}`,
+        subject: `Message from vijayusa146@gmail.com: ${req.body.subject}`,
         text: req.body.message
     }
 
@@ -109,4 +139,4 @@ app.post('/',(req,res)=>{
 
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
-})  */
+})  

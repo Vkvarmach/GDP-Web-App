@@ -37,6 +37,7 @@ h1 {
 .button2{
   background-color: green;
   color: white;
+  padding: 10px 10px;
 }
 .button2:hover{
   background: rgb(87, 208, 87);
@@ -44,6 +45,7 @@ h1 {
 .button3{
   background-color: green;
   color: white;
+  padding: 10px 10px;
 }
 .button3:hover{
   background: rgb(87, 208, 87);
@@ -51,6 +53,7 @@ h1 {
 .button4{
   background-color: green;
   color: white;
+  padding: 10px 10px;
 }
 .button4:hover{
   background: rgb(87, 208, 87);
@@ -58,6 +61,7 @@ h1 {
 .button5{
   background-color: green;
   color: white;
+  padding: 10px 10px;
 }
 .button5:hover{
   background: rgb(87, 208, 87);
