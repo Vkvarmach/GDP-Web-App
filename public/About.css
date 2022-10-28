@@ -1,0 +1,21 @@
+* {
+    margin: auto;
+    padding: auto;
+  }
+
+  body{
+    background-color:#ddd;
+
+  }
+  
+  h1 {
+    font-family:'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 60px;
+    width: auto;
+    color: whitesmoke;
+    background-color: green;
+  
+  }
+
+
+  

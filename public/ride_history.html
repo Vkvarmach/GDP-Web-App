@@ -26,44 +26,39 @@
 </div>
 
 
-  <h1 class="M_Riders">Manage Riders &emsp;
+  <h1 class="M_Riders">Ride History &emsp;
 
     <input type="text" placeholder="Search..">&emsp;&emsp;&emsp;&emsp;
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
-    <a  href="emailriders.html"> <button class="btna" >Email</button></a>
-    <a  href="blockrider.html"> <button class="btnd" >Block</button></a>
+    <a  href="#reports"> <button class="btna" >Reports</button></a></h1>
 
-
-  </h1>
-  <br>
-
+    
   <div class="container mt-3">
     <table class="table-dark">
       <thead>
         <tr>
-          <th>Userno</th>
-          <th>ID</th>
-          <th>EmailId</th>
-          <th>FirstName</th>
-          <th>LastName</th>
-          <th>Contact</th>
+          <th>Sno</th>
+          <th>Date</th>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Duration</th>
+          <th>Amount</th>
+          <th>Payment Status</th>
         </tr>
       </thead>
       <tbody id="tbody1"></tbody>
 
     </table>
   </div>
-
-
   <script type="module">
 
-    var userNo = 0;
+    var Sno = 0;
     var tbody = document.getElementById('tbody1');
 
 
 
-    function addItemToTable(ID, FirstName, LastName, Contact, EmailId) {
+    function rh_addItemToTable(Date,Source,Destination,Duration,Amount,Payment_status) {
       let trow = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
@@ -71,13 +66,15 @@
       let td4 = document.createElement("td");
       let td5 = document.createElement("td");
       let td6 = document.createElement("td");
+      let td7 = document.createElement("td");
 
-      td1.innerHTML = ++userNo;
-      td2.innerHTML = ID;
-      td3.innerHTML = FirstName;
-      td4.innerHTML = LastName;
-      td5.innerHTML = Contact;
-      td6.innerHTML = EmailId;
+      td1.innerHTML = ++Sno;
+      td2.innerHTML = Date;
+      td3.innerHTML = Source;
+      td4.innerHTML = Destination;
+      td5.innerHTML = Duration;
+      td6.innerHTML = Amount;
+      td7.innerHTML = Payment_status
 
       trow.appendChild(td1);
       trow.appendChild(td2);
@@ -85,6 +82,7 @@
       trow.appendChild(td4);
       trow.appendChild(td5);
       trow.appendChild(td6);
+      trow.appendChild(td7);
 
       tbody.appendChild(trow);
     }
@@ -112,13 +110,13 @@
 
 
     import { getDatabase, ref, child, get,onValue} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
-    const db = getDatabase(app);
+    const rdb = getDatabase(app);
 
-    function AddALLItemsToTable(TheUser) {
-      userNo = 0;
+    function rh_AddALLItemsToTable(TheUser) {
+      Sno = 0;
       tbody.innerHTML = "";
       TheUser.forEach(element => {
-        addItemToTable(element.uid, element.email, element.firstname, element.lastname, element.phonenumber)
+        rh_addItemToTable(element.Date, element.Source, element.Destination, element.Duration, element.Amount,element.Payment_status)
       });
 
     }
@@ -126,10 +124,10 @@
 
     //---------------------------Getting ALL Data---------------------------------------------------------------------//
 
-    function GetalldataOnce() {
-      const dbRef = ref(db);
+    function rh_GetalldataOnce() {
+      const rdbRef = ref(rdb);
 
-      get(child(dbRef, "smartmobility/users"))
+      get(child(rdbRef, "ridehistory/"))
         .then((snapshot) => {
           var users = [];
 
@@ -137,36 +135,34 @@
             users.push(childSnapshot.val());
 
           });
-          AddALLItemsToTable(users);
+          rh_AddALLItemsToTable(users);
 
         });
     }
 
     
 
-    function GetalldataRealtime() {
-      const dbRef = ref(db,"smartmobility/users");
+    function rh_GetalldataRealtime() {
+      const rdbRef = ref(rdb,"ridehistory/");
 
-      onValue(dbRef,(snapshot) => {
+      onValue(rdbRef,(snapshot) => {
           var users = [];
 
           snapshot.forEach(childSnapshot => {
             users.push(childSnapshot.val());
 
           });
-          AddALLItemsToTable(users);
+          rh_AddALLItemsToTable(users);
 
         });
     }
-    window.onload = GetalldataRealtime;
+    window.onload = rh_GetalldataRealtime;
 
 
 
 
   </script>
 
-
-
-</body>
-
+    
+  </body>
 </html>

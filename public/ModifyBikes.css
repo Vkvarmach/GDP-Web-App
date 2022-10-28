@@ -10,11 +10,11 @@
     color: whitesmoke;
     background-color: green;
     text-align: center;
-    font-size:xx-large;
+    font-size: x-large;
   }
   
   body {
-    background-color: white;
+    background-color: #344a72;
     font-family: "Roboto", sans-serif;
   }
   
@@ -22,9 +22,10 @@
     width: 360px;
     height: 620px;
     margin: auto;
-    background-color: lightgray;
+    background-color: white;
     border-radius: 3px;
   }
+  
   
   .login-box {
     width: 360px;
@@ -36,10 +37,7 @@
   
   h3 {
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
-    font-family:'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-top: 15px;
   }
   
   h4 {
@@ -55,8 +53,12 @@
     display: flex;
     margin-top: 20px;
     font-size: 18px;
+    
   }
-  
+  form select
+{
+  width: 300px;
+}  
   form input {
     width: 100%;
     padding: 7px;
@@ -65,9 +67,20 @@
     border-radius: 6px;
     outline: none;
   }
-  
+  /*
   input[type="button"] {
     width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+  }
+  */
+  
+  form button{
+    width: 305px;
     height: 35px;
     margin-top: 20px;
     border: none;

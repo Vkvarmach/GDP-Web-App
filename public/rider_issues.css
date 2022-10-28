@@ -1,0 +1,29 @@
+* {
+    margin: auto;
+    padding: auto;
+}
+
+body{
+    
+    background-color:white;
+}
+
+h1 {
+    font-family:'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 60px;
+    width: auto;
+    color: whitesmoke;
+    background-color: green;
+    text-align: center;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    width: auto;
+    height: auto;
+    color: white;
+    text-align: left;
+    font-size: x-large;
+    cursor: pointer;
+
+}

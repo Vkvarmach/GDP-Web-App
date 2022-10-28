@@ -2,7 +2,7 @@
   "name": "GDP-Web-App",
   "version": "1.0.0",
   "description": "GDP-Smart Mobility Admin Web Application",
-  "main": "index.js",
+  "main": "login.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"

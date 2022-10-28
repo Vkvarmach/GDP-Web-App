@@ -5,15 +5,14 @@
     <title>Block</title>
     <link rel="stylesheet" href="blockrider.css" />
 </head>
-
 <body>
     <h1>Smart Mobility</h1>
     <h4>Block Rider</h4>
     <br>
     <div class="contents">
         <form class="form" style="margin: 20px;">
-            <label for="frider" class="rider"><b>Rider ID</b></label>
-            <input type="text" id="tbox" name="frider">
+            <label type="text" id="id" class="rider"><b>Rider id</b></label>
+            <input type="text" id="riderID" name="frider">
             <br>
             <br>
             <label for="lname"><b>Reason For Blocking</b></label>
@@ -26,9 +25,48 @@
             </select>
             <br>
             <br>
+            <button id="submitData" name="submitData" class="block">block</button>
+            <!-- <button type="submit" id="submitData" style="margin-left: 140px;" name="submitData" class="block">Block</button> -->
         </form>
-        <button type="button" class="block" onclick="blockuser()" style="margin-left: 140px;">Block</button>
+        
+        <!-- <button type="button" class="block" onclick="blockuser()" style="margin-left: 140px;">Block</button> -->
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+    import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+    authDomain: "smart-mobility-ios.firebaseapp.com",
+    databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+    projectId: "smart-mobility-ios",
+    storageBucket: "smart-mobility-ios.appspot.com",
+    messagingSenderId: "727144855934",
+    appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+    measurementId: "G-5SNWQ6NS22"
+  };
+  
+      // Initialize Firebase
+       const app = initializeApp(firebaseConfig);
+       const database = getDatabase(app);
+  
+       submitData.addEventListener('click',(e) => {
+      var id = document.getElementById('riderID').value;
+      console.log(id)
+      remove(ref(database, 'smartmobility/users/' + id));
+      alert('blocked');
+    //   id.value=""
+      });
+      
+      
+  
+     
+  </script>
 </body>
 
 </html>
