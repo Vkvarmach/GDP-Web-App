@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nameissatheesh/GDP-Web-App.git"
+    "url": "https://github.com/Vkvarmach/GDP-Web-App"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nameissatheesh/GDP-Web-App/issues"
+    "url": "https://github.com/Vkvarmach//GDP-Web-App/issues"
   },
-  "homepage": "https://github.com/nameissatheesh/GDP-Web-App#readme",
+  "homepage": "https://github.com/Vkvarmach//GDP-Web-App#readme",
   "dependencies": {
     "express": "^4.18.1",
     "firebase": "^9.8.2",
