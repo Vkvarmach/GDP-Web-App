@@ -11,8 +11,8 @@
     <br>
     <div class="contents">
         <form class="form" style="margin: 20px;">
-            <label type="text" id="id" class="rider"><b>Rider id</b></label>
-            <input type="text" id="riderID" name="frider">
+            <label type="text" id="email" class="rider"><b>Rider email_id</b></label>
+            <input type="text" name="frider">
             <br>
             <br>
             <label for="lname"><b>Reason For Blocking</b></label>
@@ -53,20 +53,21 @@
   
       // Initialize Firebase
        const app = initializeApp(firebaseConfig);
-       const database = getDatabase(app);
+       const my_database = getDatabase(app);
   
        submitData.addEventListener('click',(e) => {
-      var id = document.getElementById('riderID').value;
+      var email = document.getElementById('email').value;
       console.log(id)
-      remove(ref(database, 'smartmobility/users/' + id));
+      remove(ref(my_database, 'smartmobility/users/' + email));
       alert('blocked');
-    //   id.value=""
+       email.value=""
       });
       
       
   
      
   </script>
+  <script href="blockrider.js"></script>
 </body>
 
 </html>
