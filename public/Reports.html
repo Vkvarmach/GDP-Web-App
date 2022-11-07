@@ -16,30 +16,21 @@
    
   <h1>Smart Mobility</h1>
   <div class="login-box">
-    <h3>Add Bike
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-          </svg>
+    <h3>Reports
     </h3>
    
         <form action="" class="AddBike"  id="AddBike">
-      <label>Location</label>
-      <input type="text" placeholder="" id="bikelocation" />
-      <label>Type</label>
-      <input type="text" placeholder="" id="biketype" />
-      <label>Description</label>
-      <input type="text" placeholder="" id="bikedescription" />
-      <!-- <label for="bike cc">Bike CC:</label> -->
-      <!-- <select id="bikeCC" name="cars">
-        <option value="150cc ">150cc Bike</option>
-        <option value="100cc">100cc Bike</option>
-        <option value="50cc">50cc Bike</option>
-        <option value="other">other</option>
-      </select> -->
-      <!--  <input type="button" value="Submit" onclick="validate()" /> -->
+      <label>Date</label>
+      <input type="text" placeholder="Enter the Date" id="date" />
+      <label>Source</label>
+      <input type="text" placeholder="Enter Source" id="source" />
+      <label>Destination</label>
+      <input type="text" placeholder="Enter Destination" id="destination" />
 
-      <button type="button" id="submitData" name="submitData" class="registerbtn">ADD</button>
+      <button type="button" id="submitData" name="submitData" class="registerbtn">Generate Reports</button>
+      <div>
+        <p class="h6" id="reports"></p>
+      </div>
     </form>
   </div>
 
@@ -50,7 +41,7 @@
     import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-    var BikeLength;
+    
     // Your web app's Firebase configuration
     const firebaseConfig = {
     apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
@@ -68,36 +59,48 @@
        const database = getDatabase(app);
   
        submitData.addEventListener('click',(e) => {
-      var bikeid = BikeLength+1;
-      var bikeLocation = document.getElementById('bikelocation').value;
-      var biketype = document.getElementById('biketype').value;
-      var bikedescription = document.getElementById('bikedescription').value;
-      let formData={
-        bikeid: bikeid,
-        bikeLocation:bikelocation.value,
-        biketype:biketype,
-        discription:bikedescription
-      }
-      console.log(formData)
-      set(ref(database, 'bikes/'+bikeid), formData);
-      });
-
       
-      function GetalldataRealtime() {
-            const databaseRef = ref(database, "bikes/");
+      var date = document.getElementById('date').value;
+      var source = document.getElementById('source').value;
+      var destination = document.getElementById('destination').value;
+      console.log(date,source,destination)
+
+      const databaseRef = ref(database, "rental/");
 
             onValue(databaseRef, (snapshot) => {
                 var users = [];
 
                 snapshot.forEach(childSnapshot => {
-                    users.push(childSnapshot.val());
+                    // console.log(childSnapshot.val().rentDateTime,childSnapshot.val().destination,childSnapshot.val().source)
+                    if(childSnapshot.val().destination==destination && childSnapshot.val().source==source && childSnapshot.val().rentDateTime==date){
+                        users.push(childSnapshot.val());
+                    }
+                    
 
                 });
                 console.log(users.length)
-                BikeLength=users.length;
+                document.getElementById("reports").innerHTML = "Number of Riders from "+source+" to "+destination+ " : "+users.length;
+
             });
-        }
-        window.onload = GetalldataRealtime;
+      
+      });
+
+      
+    //   function GetalldataRealtime() {
+    //         const databaseRef = ref(database, "rental/");
+
+    //         onValue(databaseRef, (snapshot) => {
+    //             var users = [];
+
+    //             snapshot.forEach(childSnapshot => {
+    //                 users.push(childSnapshot.val());
+
+    //             });
+    //             console.log(users.length)
+    //             BikeLength=users.length;
+    //         });
+    //     }
+    //     window.onload = GetalldataRealtime;
 
   
      

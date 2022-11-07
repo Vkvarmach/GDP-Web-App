@@ -13,28 +13,27 @@
 
 
 <body>
-   
+
   <h1>Smart Mobility</h1>
   <div class="login-box">
     <h3>Modify Bike
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-          </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+        viewBox="0 0 16 16">
+        <path
+          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+        <path fill-rule="evenodd"
+          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+      </svg>
     </h3>
     <form>
       <label>BikeId</label>
-      <input type="text" placeholder="enter ID" id="bikeid" />
+      <input type="text" placeholder="Enter Bike ID" id="bikeid" />
       <label>Location</label>
-      <input type="text" placeholder="enter location" id="bikelocation" />
-      
-      <label for="cars">Bike CC:</label>
-      <select id="bikeCC" name="cars">
-        <option value="150cc ">150cc Bike</option>
-        <option value="100cc">100cc Bike</option>
-        <option value="50cc">50cc Bike</option>
-        <option value="other">other</option>
-      </select>
+      <input type="text" placeholder="Enter Bike Location" id="bikelocation" />
+      <label>Type</label>
+      <input type="text" placeholder="Enter typr of Bike" id="biketype" />
+      <label>Description</label>
+      <input type="text" placeholder="Enter Description for Bike" id="bikedescription" />
 
       <button type="button" id="submitData" name="submitData" class="registerbtn">Save</button>
     </form>
@@ -46,42 +45,53 @@
     import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-  
+
     // Your web app's Firebase configuration
     const firebaseConfig = {
-    apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
-    authDomain: "smart-mobility-ios.firebaseapp.com",
-    databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
-    projectId: "smart-mobility-ios",
-    storageBucket: "smart-mobility-ios.appspot.com",
-    messagingSenderId: "727144855934",
-    appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
-    measurementId: "G-5SNWQ6NS22"
-  };
-  
-      // Initialize Firebase
-       const app = initializeApp(firebaseConfig);
-       const database = getDatabase(app);
-  
-       submitData.addEventListener('click',(e) => {
+      apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+      authDomain: "smart-mobility-ios.firebaseapp.com",
+      databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+      projectId: "smart-mobility-ios",
+      storageBucket: "smart-mobility-ios.appspot.com",
+      messagingSenderId: "727144855934",
+      appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+      measurementId: "G-5SNWQ6NS22"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    submitData.addEventListener('click', (e) => {
+
       var bikeid = document.getElementById('bikeid').value;
-      var bikelocation = document.getElementById('bikelocation').value;
-      var bikecc = document.getElementById('bikeCC').value;
-      let formData={
-        bikeid: bikeid,
-        bikelocation:bikelocation,
-        bikeCC:bikecc
+      var bikeLocation = document.getElementById('bikelocation').value;
+      var biketype = document.getElementById('biketype').value;
+      var bikedescription = document.getElementById('bikedescription').value;
+      if (bikeid.length==0 && bikeLocation.length==0 && biketype.length==0 && bikedescription.length==0) {
+        alert("enter some values");
       }
-      update(ref(database, 'manage-bikes/'+bikeid), formData);
+      else{
+        let formData = {
+        bikeid: bikeid,
+        bikeLocation: bikelocation.value,
+        biketype: biketype,
+        discription: bikedescription
+      }
+      update(ref(database, 'bikes/' + bikeid), formData);
       alert('updated')
-      });
+
+      }
+      
+    });
       // bikeid.value = '';
       // bikelocation.value = '';
       // bikeCC.value = '';
 
-      
-  
-     
+
+
+
   </script>
 </body>
+
 </html>

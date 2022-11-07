@@ -39,11 +39,10 @@
   <br>
 
   <div class="container mt-3">
-    <table class="table-dark">
+    <table class="table">
       <thead>
         <tr>
           <th>Userno</th>
-          <th>ID</th>
           <th>EmailId</th>
           <th>FirstName</th>
           <th>LastName</th>
@@ -63,7 +62,7 @@
 
 
 
-    function addItemToTable(ID, FirstName, LastName, Contact, EmailId) {
+    function addItemToTable(FirstName, LastName, Contact, EmailId) {
       let trow = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
@@ -73,18 +72,18 @@
       let td6 = document.createElement("td");
 
       td1.innerHTML = ++userNo;
-      td2.innerHTML = ID;
-      td3.innerHTML = FirstName;
-      td4.innerHTML = LastName;
-      td5.innerHTML = Contact;
-      td6.innerHTML = EmailId;
+    
+      td2.innerHTML = FirstName;
+      td3.innerHTML = LastName;
+      td4.innerHTML = Contact;
+      td5.innerHTML = EmailId;
 
       trow.appendChild(td1);
       trow.appendChild(td2);
       trow.appendChild(td3);
       trow.appendChild(td4);
       trow.appendChild(td5);
-      trow.appendChild(td6);
+     
 
       tbody.appendChild(trow);
     }
@@ -118,7 +117,7 @@
       userNo = 0;
       tbody.innerHTML = "";
       TheUser.forEach(element => {
-        addItemToTable(element.uid, element.email, element.firstname, element.lastname, element.phonenumber)
+        addItemToTable(element.email, element.firstname, element.lastname, element.phonenumber)
       });
 
     }
@@ -129,7 +128,7 @@
     function GetalldataOnce() {
       const dbRef = ref(db);
 
-      get(child(dbRef, "smartmobility/users"))
+      get(child(dbRef, "smart_mobility/users"))
         .then((snapshot) => {
           var users = [];
 
@@ -145,7 +144,7 @@
     
 
     function GetalldataRealtime() {
-      const dbRef = ref(db,"smartmobility/users");
+      const dbRef = ref(db,"smart_mobility/users");
 
       onValue(dbRef,(snapshot) => {
           var users = [];

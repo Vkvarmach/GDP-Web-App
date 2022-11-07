@@ -63,7 +63,7 @@
        submitData.addEventListener('click',(e) => {
       var bikeId = document.getElementById('bikeId').value;
       console.log("  ",bikeId)
-      remove(ref(database, 'manage-bikes/' + bikeId));
+      remove(ref(database, 'bikes/' + bikeId));
       alert('removed');
       });
       

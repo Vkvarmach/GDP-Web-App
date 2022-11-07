@@ -31,20 +31,21 @@
     <input type="text" placeholder="Search..">&emsp;&emsp;&emsp;&emsp;
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
-    <a  href="#reports"> <button class="btna" >Reports</button></a></h1>
+    <a  href="Reports.html"> <button class="btna" >Reports</button></a></h1>
 
     
   <div class="container mt-3">
-    <table class="table-dark">
+    <table class="table">
       <thead>
         <tr>
           <th>Sno</th>
-          <th>Date</th>
           <th>Source</th>
           <th>Destination</th>
-          <th>Duration</th>
-          <th>Amount</th>
-          <th>Payment Status</th>
+          <th>Pickuptime</th>
+          <th>Droptime</th>
+          <th>Duration(min)</th>
+          <th>Amount($)</th>
+          <th>Uid</th>
         </tr>
       </thead>
       <tbody id="tbody1"></tbody>
@@ -58,7 +59,7 @@
 
 
 
-    function rh_addItemToTable(Date,Source,Destination,Duration,Amount,Payment_status) {
+    function rh_addItemToTable(Source,Destination,Pickuptime,Droptime,Duration,uid,Amount) {
       let trow = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
@@ -67,14 +68,16 @@
       let td5 = document.createElement("td");
       let td6 = document.createElement("td");
       let td7 = document.createElement("td");
+      let td8 = document.createElement("td");
 
       td1.innerHTML = ++Sno;
-      td2.innerHTML = Date;
-      td3.innerHTML = Source;
-      td4.innerHTML = Destination;
-      td5.innerHTML = Duration;
-      td6.innerHTML = Amount;
-      td7.innerHTML = Payment_status
+      td2.innerHTML = Source;
+      td3.innerHTML = Destination;
+      td4.innerHTML = Pickuptime;
+      td5.innerHTML = Droptime;
+      td6.innerHTML = Duration;
+      td7.innerHTML = uid;
+      td8.innerHTML = Amount;
 
       trow.appendChild(td1);
       trow.appendChild(td2);
@@ -83,6 +86,7 @@
       trow.appendChild(td5);
       trow.appendChild(td6);
       trow.appendChild(td7);
+      trow.appendChild(td8);
 
       tbody.appendChild(trow);
     }
@@ -116,7 +120,7 @@
       Sno = 0;
       tbody.innerHTML = "";
       TheUser.forEach(element => {
-        rh_addItemToTable(element.Date, element.Source, element.Destination, element.Duration, element.Amount,element.Payment_status)
+        rh_addItemToTable(element.pickupLocation, element.destinationLocation, element.pickupTimestamp,element.dropTimestamp, element.duration,element.amount,element.uid)
       });
 
     }
@@ -127,7 +131,7 @@
     function rh_GetalldataOnce() {
       const rdbRef = ref(rdb);
 
-      get(child(rdbRef, "ridehistory/"))
+      get(child(rdbRef, "ride_history/Jjx3KEfMKpfbwoCvL7SYaiRu3gx1/"))
         .then((snapshot) => {
           var users = [];
 
@@ -143,7 +147,7 @@
     
 
     function rh_GetalldataRealtime() {
-      const rdbRef = ref(rdb,"ridehistory/");
+      const rdbRef = ref(rdb,"ride_history/Jjx3KEfMKpfbwoCvL7SYaiRu3gx1/");
 
       onValue(rdbRef,(snapshot) => {
           var users = [];
