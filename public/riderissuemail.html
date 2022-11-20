@@ -89,35 +89,37 @@
 </head>
   
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="Dashboard.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="Dashboard.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active  bg-dark" aria-current="page" href="m_riders.html">Manage Riders</a>
+            <a class="nav-link active" aria-current="page" href="m_riders.html">Manage Riders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="m_Bikes.html">Manage Bikes</a>
+            <a class="nav-link active" aria-current="page" href="m_Bikes.html">Manage Bikes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="r_history.html">Ride History</a>
+            <a class="nav-link active" aria-current="page" href="r_history.html">Ride History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="m_locations.html">Manage Locations</a>
+            <a class="nav-link active" aria-current="page" href="m_locations.html">Manage Locations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="r_issues.html">Rider Issues</a>
+            <a class="nav-link active" aria-current="page" href="r_issues.html">Rider Issues</a>
           </li>
-           
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="index.html">Log out</a>
+            <a class="nav-link active" aria-current="page" href="m_locations.html">Manage Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Log out</a>
           </li>
           
         </ul>
@@ -127,8 +129,8 @@
   </nav>
 
 
-
-     <div class="form-container container" style="width: 400px;">
+  <a  type="submit" href="r_issues.html?id=1" class=" form-control submit btn btn-info" value="back" style="width: 60px;margin-left: 20px;">back</a>
+     <div class="form-container container" style="width: 400px;margin-top: -40px;">
       
       <h1>Send Email</h1>
         <form  class="contact-form" ><br>
@@ -137,6 +139,7 @@
             <input type="test" class="form-control"  id="subject" placeholder="Subject" ><br>
             <textarea id="message" class="form-control" placeholder="message" cols="30" rows="10"></textarea><br>
             <input  type="submit"class=" form-control submit btn btn-success" value="send" style="width: 60px;">
+            <input id="saveData" class="form-control submit btn btn-warning" type="submit" class="" value="save" style="width: 60px;">
         </form>
 
       </div>
@@ -169,15 +172,17 @@
         var email = document.getElementById('email').value;
         var subject = document.getElementById('subject').value;
         var message = document.getElementById('message').value;
+    
         set(ref(database, 'admin-email/' + full_name), {
+    
          full_name: full_name,
          email: email,
          subject: subject,
          message: message
+    
          });
     
         alert('saved');
-        window.location.href = "m_riders.html";
         });
 </script>
     <script src="mailapp.js"></script>

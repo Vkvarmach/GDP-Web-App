@@ -5,10 +5,14 @@
 
 
   <title><br>M_Riders</br></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+      <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
 <body>
 
@@ -17,29 +21,57 @@
 
 
 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="Dashboard.html"></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link  bg-dark active" aria-current="page" href="m_riders.html" >Manage Riders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="m_Bikes.html">Manage Bikes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="r_history.html">Ride History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="m_locations.html">Manage Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="r_issues.html">Rider Issues</a>
+          </li>
+           
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="index.html">Log out</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
  
-  <div class="topnav">
-    <a href="Dashboard.html"> <button class="button" ><i class="fa fa-home"></i>Home</button></a>
-    <a href="About.html"> <button class="button" >About</button></a>
-    <a href="contactus.html"> <button class="button" >Contact</button></a>
-
-</div>
 
 
-  <h1 class="M_Riders">Manage Riders &emsp;
 
-    <input type="text" placeholder="Search..">&emsp;&emsp;&emsp;&emsp;
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-
-    <a  href="emailriders.html"> <button class="btna" >Email</button></a>
-    <a  href="blockrider.html"> <button class="btnd" >Block</button></a>
-
-
-  </h1>
+ 
   <br>
-
+  <input class="form-control container" id="gfg" type="text" 
+  placeholder="Search here" style="width: 500px;">
   <div class="container mt-3">
-    <table class="table">
+    <h2>Manage Riders</h2>
+    <a class=" btn btn-outline-info" href="emailriders.html">Email</a>&emsp;
+    <a class=" btn btnd" href="blockrider.html">Block</a>
+    <br><br>
+    <div class="container mt-3">
+    <table class="table" id="table_id">
       <thead>
         <tr>
           <th>Userno</th>
@@ -53,6 +85,7 @@
 
     </table>
   </div>
+ 
 
 
   <script type="module">
@@ -163,9 +196,15 @@
 
 
   </script>
-
-
-
-</body>
-
+<script>
+  $(document).ready(function() {
+      $("#gfg").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#tbody1 tr").filter(function() {
+              $(this).toggle($(this).text()
+              .toLowerCase().indexOf(value) > -1)
+          });
+      });
+  });
+  </script>
 </html>

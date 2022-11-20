@@ -1,6 +1,5 @@
 
 const contactForm = document.querySelector('.contact-form');
-
 let Firstname = document.getElementById("Firstname"); 
 let Lastname = document.getElementById("Lastname");
 let email = document.getElementById("email");
@@ -9,16 +8,14 @@ let Password = document.getElementById("password");
    
 
 contactForm.addEventListener('submit', (e)=>{
-   e.preventDefault();
-           
+   e.preventDefault();       
+   console.log("hello");
     let formData = {
         Firstname: Firstname.value,
         Lastname: Lastname.value,
         email: email.value,
         phonenumber: phonenumber.value,
         Password : password.value
-        
-  
     }
 
     let xhr = new XMLHttpRequest();
@@ -32,7 +29,7 @@ contactForm.addEventListener('submit', (e)=>{
             Lastname.value = '';
             email.value = '';
             phonenumber.value = '';
-            password.value='';
+            psssword.value='';
         }else{
             alert('something went wrong!')
         }
@@ -147,4 +144,4 @@ function sendEmail(name,email,phonenumber){
     email:`${name}  sent you a phonenumber`,
     Body: `${name} <br/> Email: ${email} <br/> phonenumber: ${phonenumber}` ,  
   }).then((phonenumber) => alert("mail sent successfully"));
-} */v
+} */

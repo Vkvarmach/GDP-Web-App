@@ -26,15 +26,18 @@ contactForm.addEventListener('submit', (e)=>{
         console.log(xhr.responseText);
         if(xhr.responseText == 'success'){
             alert('Email sent');
+            window.location.href = "m_riders.html";
             full_name.value = '';
             email.value = '';
             subject.value = '';
             message.value = '';
         }else{
-            alert('something went wrong!')
+            alert('something went wrong!');
+            window.location.href = "m_riders.html";
         }
     }
     xhr.send(JSON.stringify(formData));
+    
 }) 
 
  /*

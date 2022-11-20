@@ -14,7 +14,43 @@
 
 <body>
 
-  <h1>Smart Mobility</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-bg-success">
+    <div class="container-fluid">
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="Dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="m_riders.html">Manage Riders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  bg-dark active" aria-current="page" href="m_Bikes.html">Manage Bikes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="r_history.html">Ride History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="m_locations.html">Manage Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="r_issues.html">Rider Issues</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="index.html">Log out</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <!-- <input type="button" class="btn btn-warning" style="margin-left: 50px;" value="back" onclick="window.location.href='m_Bikes.html'"> -->
   <div class="login-box">
     <h3>Modify Bike
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
@@ -26,16 +62,16 @@
       </svg>
     </h3>
     <form>
-      <label>BikeId</label>
-      <input type="text" placeholder="Enter Bike ID" id="bikeid" />
-      <label>Location</label>
-      <input type="text" placeholder="Enter Bike Location" id="bikelocation" />
-      <label>Type</label>
-      <input type="text" placeholder="Enter typr of Bike" id="biketype" />
-      <label>Description</label>
-      <input type="text" placeholder="Enter Description for Bike" id="bikedescription" />
+      <label class="form-label">BikeId</label>
+      <input type="text" class="form-control"  placeholder="Enter Bike ID" id="bikeid" />
+      <label class="form-label">Location</label>
+      <input type="text" class="form-control"  placeholder="Enter Bike Location" id="bikelocation" />
+      <label class="form-label">Type</label>
+      <input type="text" class="form-control"  placeholder="Enter type of Bike" id="biketype" />
+      <label class="form-label">Description</label>
+      <input type="text" class="form-control"  placeholder="Enter Description for Bike" id="bikedescription" />
 
-      <button type="button" id="submitData" name="submitData" class="registerbtn">Save</button>
+      <button type="button" id="submitData" name="submitData" class="registerbtn btn btn-success" style="width: 70px;">Save</button>
     </form>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
@@ -68,6 +104,7 @@
       var bikeLocation = document.getElementById('bikelocation').value;
       var biketype = document.getElementById('biketype').value;
       var bikedescription = document.getElementById('bikedescription').value;
+      
       if (bikeid.length==0 && bikeLocation.length==0 && biketype.length==0 && bikedescription.length==0) {
         alert("enter some values");
       }
@@ -79,9 +116,16 @@
         discription: bikedescription
       }
       update(ref(database, 'bikes/' + bikeid), formData);
-      alert('updated')
+      alert("updated");
+      setInterval(()=>{
+        window.location.href = "m_Bikes.html";
+      },1000)
+      
+      // update=1
+      
 
       }
+
       
     });
       // bikeid.value = '';

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manage Locations</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+      <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+      <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+</head>
+
+<body>
+
+    <link rel="stylesheet" href="riders.css">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+         <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse nav-pills navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link  " aria-current="page" href="Dashboard.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " aria-current="page" href="m_riders.html">Manage Riders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " aria-current="page" href="m_Bikes.html">Manage Bikes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " aria-current="page" href="r_history.html">Ride History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bg-dark active" aria-current="page" href="m_locations.html">Manage Locations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " aria-current="page" href="r_issues.html">Rider Issues</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link  " aria-current="page" href="index.html">Log out</a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    <br>
+        <input class="form-control container" id="gfg" type="text" 
+        placeholder="Search here" style="width: 500px;">
+    <div class="container mt-3">
+        <br>
+        <h1>Manage Locations</h1>
+         <!-- <a class="btn btn-success" id="button1" onclick="deleteclicked()">Delete Location</a>  -->
+         <!-- <input class="form-control" id="delete" type="text" 
+        placeholder="enter Location" style="width: 250px;display: none; margin-left: 200px;"> -->
+        <!-- <a class="btn btn-danger" id="button2" style="display: none;width: 150px;margin-top: -36px;" onclick="deleteclicked2()">Delete</a> -->
+        <br>
+        <table class="table" id="table_id">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Locations</th>
+                    <th>No.Of Bikes avaliable</th>
+                    <th style="text-align: center;"></th>
+                    
+                </tr>
+            </thead>
+            <tbody id="tbody1"></tbody>
+
+        </table>
+    </div>
+<script>
+  function deleteclicked(){
+  document.getElementById('delete').style.display="block";
+  document.getElementById('button2').style.display="block";
+  document.getElementById('button1').style.display="none";
+}
+
+
+</script>
+
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+    import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+        var userNo = 0;
+        var tbody = document.getElementById('tbody1');
+        function addItemToTable(bikeLocation, noOfBike) {
+            let trow = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+           // let td7 = document.createElement("BUTTON");
+           // td7.className = "btn btn-outline-primary";
+            //td7.id="add";
+            //td7.style.marginRight="20px";
+            //td7.onclick=addfunction;
+
+            //let td8 = document.createElement("BUTTON");
+            //td8.className = "btn btn-outline-dark";
+            //td8.id="delete";
+            //td8.onclick=delfunction;
+
+            let td9 = document.createElement("BUTTON");
+            td9.className = "btn btn-danger";
+            td9.id="Delete_Location";
+            td9.style.marginLeft="20px";
+            td9.onclick=()=>{};
+            // td9.addEventListener("click",function(){
+            //   delLocation(bikeLocation);
+            // },flase);
+
+            // td9 = document.querySelector('button');
+            td9.addEventListener('click', delLocation, false);
+            td9.myParam = bikeLocation;
+// function myFunc(evt)
+// {
+//   window.alert(evt.currentTarget.myParam);
+// }  
+
+
+
+            td1.innerHTML = ++userNo;;
+            td2.innerHTML = bikeLocation;
+            td3.innerHTML = noOfBike;
+            //td7.innerHTML = "Add +";
+            //td8.innerHTML = "Delete -";
+            td9.innerHTML = "Delete Locations -";
+
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            //trow.appendChild(td7);
+            //trow.appendChild(td8);
+            trow.appendChild(td9);
+
+            tbody.appendChild(trow);
+        }
+
+
+        // Import the functions you need from the SDKs you need
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+        //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+            authDomain: "smart-mobility-ios.firebaseapp.com",
+            databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+            projectId: "smart-mobility-ios",
+            storageBucket: "smart-mobility-ios.appspot.com",
+            messagingSenderId: "727144855934",
+            appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+            measurementId: "G-5SNWQ6NS22"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        //const analytics = getAnalytics(app);
+
+
+        // import { getDatabase, ref, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+        const database = getDatabase(app);
+
+        function AddALLItemsToTable(TheUser) {
+            userNo = 0;
+
+            console.log("TheUser",TheUser);
+            tbody.innerHTML = "";
+            for (const key in TheUser) {
+
+            console.log("hello",key,TheUser[key]);
+            addItemToTable(key,TheUser[key])
+            }
+            
+            // TheUser.forEach(element => {
+            //     addItemToTable(element,)
+            // });
+            
+        }
+        //---------------------------Getting ALL Data---------------------------------------------------------------------//
+        function GetalldataOnce() {
+            const databaseRef = ref(database);
+            get(child(databaseRef, "manage-bikes/"))
+                .then((snapshot) => {
+                    var users = [];
+                    snapshot.forEach(childSnapshot => {
+                        users.push(childSnapshot.val());
+                    });
+                    AddALLItemsToTable(users);
+                });
+        }
+        
+        function GetalldataRealtime() {
+            
+            
+            const databaseRef = ref(database, "bikes/");
+
+            onValue(databaseRef, (snapshot) => {
+                var users = [];
+                var bikes = [];
+                snapshot.forEach(childSnapshot => {
+                    users.push(childSnapshot.val());
+
+                });
+                console.log("length",users.length)
+                users.forEach(element => {
+                bikes.push(element.bikeLocation);
+                
+            });
+            console.log("bikes111",bikes)
+            const letters = new Set(bikes);
+            const counts = {};
+            bikes.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+            console.log(counts)
+            console.log(counts.texas)
+            
+            
+
+                AddALLItemsToTable(counts);
+
+            });
+        }
+        window.onload = GetalldataRealtime;
+
+        function addfunction() {
+            window.location.href="Addbike.html"
+            
+}
+function delfunction() {
+  // console.log("fffffffffff")
+            window.location.href="DeleteBike.html"
+            
+}
+
+function delLocation(evt) {
+
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+ 
+ // Your web app's Firebase configuration
+//  window.alert(evt.currentTarget.myParam);
+ const firebaseConfig = {
+ apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+ authDomain: "smart-mobility-ios.firebaseapp.com",
+ databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+ projectId: "smart-mobility-ios",
+ storageBucket: "smart-mobility-ios.appspot.com",
+ messagingSenderId: "727144855934",
+ appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+ measurementId: "G-5SNWQ6NS22"
+};
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const databaseRef = ref(database, "bikes/");
+
+    
+var users = [];
+         onValue(databaseRef, (snapshot) => {
+             
+
+             snapshot.forEach(childSnapshot => {
+                 users.push(childSnapshot.val());
+
+             });
+             
+
+         });
+         console.log(users.length)
+             users.forEach(element => {
+              var value=document.getElementById('delete').value;
+               if(element.bikeLocation==evt.currentTarget.myParam){
+                 remove(ref(database, 'bikes/' + element.bikeid));
+               }
+            
+         });
+
+         
+}
+// Delete_location.addEventListener('click',(e) => {
+      
+      
+      
+//       });
+    </script>
+</body>
+<script>
+  $(document).ready(function() {
+      $("#gfg").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#tbody1 tr").filter(function() {
+              $(this).toggle($(this).text()
+              .toLowerCase().indexOf(value) > -1)
+          });
+      });
+  });
+</script>
+</html>

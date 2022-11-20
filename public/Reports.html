@@ -14,20 +14,57 @@
 
 <body>
    
-  <h1>Smart Mobility</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse nav-pills navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="Dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="m_riders.html">Manage Riders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="m_Bikes.html">Manage Bikes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  bg-dark active" aria-current="page" href="r_history.html">Ride History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="m_locations.html">Manage Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="r_issues.html">Rider Issues</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="index.html">Log out</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- <input type="button" class="btn btn-warning" style="margin-left: 50px;" value="back" onclick="window.location.href='r_history.html'"> -->
   <div class="login-box">
     <h3>Reports
     </h3>
    
         <form action="" class="AddBike"  id="AddBike">
-      <label>Date</label>
-      <input type="text" placeholder="Enter the Date" id="date" />
-      <label>Source</label>
-      <input type="text" placeholder="Enter Source" id="source" />
-      <label>Destination</label>
-      <input type="text" placeholder="Enter Destination" id="destination" />
+      <label class="form-label">Date</label>
+      <input type="text" class="form-control" placeholder="Enter the Date" id="date" />
+      <label class="form-label">Source</label>
+      <input type="text" class="form-control" placeholder="Enter Source" id="source" />
+      <label class="form-label">Destination</label>
+      <input type="text" class="form-control" placeholder="Enter Destination" id="destination" />
 
-      <button type="button" id="submitData" name="submitData" class="registerbtn">Generate Reports</button>
+      <button type="button" id="submitData" name="submitData" class="registerbtn btn btn-success" style="width: 150px;">Generate Reports</button>
       <div>
         <p class="h6" id="reports"></p>
       </div>
@@ -44,15 +81,27 @@
     
     // Your web app's Firebase configuration
     const firebaseConfig = {
-    apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
-    authDomain: "smart-mobility-ios.firebaseapp.com",
-    databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
-    projectId: "smart-mobility-ios",
-    storageBucket: "smart-mobility-ios.appspot.com",
-    messagingSenderId: "727144855934",
-    appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
-    measurementId: "G-5SNWQ6NS22"
-  };
+     apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+     authDomain: "smart-mobility-ios.firebaseapp.com",
+     databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
+     projectId: "smart-mobility-ios",
+     storageBucket: "smart-mobility-ios.appspot.com",
+     messagingSenderId: "727144855934",
+     appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
+     measurementId: "G-5SNWQ6NS22"
+   };
+
+   /*
+  const firebaseConfig = {
+  apiKey: "AIzaSyCzB3spp86afE3Tb-lvVoc8-jUjc-mETiU",
+  authDomain: "fir-e2198.firebaseapp.com",
+  databaseURL: "https://fir-e2198-default-rtdb.firebaseio.com",
+  projectId: "fir-e2198",
+  storageBucket: "fir-e2198.appspot.com",
+  messagingSenderId: "199150945434",
+  appId: "1:199150945434:web:f7358a820fdb1499690b23",
+  measurementId: "G-EMHC23VDMW"
+};*/
   
       // Initialize Firebase
        const app = initializeApp(firebaseConfig);
@@ -65,7 +114,7 @@
       var destination = document.getElementById('destination').value;
       console.log(date,source,destination)
 
-      const databaseRef = ref(database, "rental/");
+      const databaseRef = ref(database, "ridehistory/");
 
             onValue(databaseRef, (snapshot) => {
                 var users = [];
@@ -82,6 +131,7 @@
                 document.getElementById("reports").innerHTML = "Number of Riders from "+source+" to "+destination+ " : "+users.length;
 
             });
+
       
       });
 
