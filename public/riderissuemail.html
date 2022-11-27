@@ -1,4 +1,3 @@
-
 <!--
 <!DOCTYPE html>
 <html lang="en">
@@ -80,19 +79,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Messages | Firebase</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Messages | Firebase</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
-  
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -121,38 +123,40 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.html">Log out</a>
           </li>
-          
+
         </ul>
-        
+
       </div>
     </div>
   </nav>
 
 
-  <a  type="submit" href="r_issues.html?id=1" class=" form-control submit btn btn-info" value="back" style="width: 60px;margin-left: 20px;">back</a>
-     <div class="form-container container" style="width: 400px;margin-top: -40px;">
-      
-      <h1>Send Email</h1>
-        <form  class="contact-form" ><br>
-            <input type="text" class="form-control" id="full_name" placeholder="Full name" required><br>
-            <input type="email"class="form-control"  id="email" placeholder="Email"   required><br>
-            <input type="test" class="form-control"  id="subject" placeholder="Subject" ><br>
-            <textarea id="message" class="form-control" placeholder="message" cols="30" rows="10"></textarea><br>
-            <input  type="submit"class=" form-control submit btn btn-success" value="send" style="width: 60px;">
-            <input id="saveData" class="form-control submit btn btn-warning" type="submit" class="" value="save" style="width: 60px;">
-        </form>
+  <a type="submit" href="r_issues.html?id=1" class=" form-control submit btn btn-info" value="back"
+    style="width: 60px;margin-left: 20px;">back</a>
+  <div class="form-container container" style="width: 400px;margin-top: -40px;">
 
-      </div>
+    <h1>Send Email</h1>
+    <form class="contact-form"><br>
+      <input type="text" class="form-control" id="full_name" placeholder="Full name" required><br>
+      <input type="email" class="form-control" id="email" placeholder="Email" required><br>
+      <input type="test" class="form-control" id="subject" placeholder="Subject"><br>
+      <textarea id="message" class="form-control" placeholder="message" cols="30" rows="10"></textarea><br>
+      <input type="submit" class=" form-control submit btn btn-success" value="send" style="width: 60px;">
+      <input id="saveData" class="form-control submit btn btn-warning" type="submit" class="" value="save"
+        style="width: 60px;">
+    </form>
 
-    
-<script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        //****************** add your configaration here *******************//
-        apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
+  </div>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      //****************** add your configaration here *******************//
+      apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
       authDomain: "smart-mobility-ios.firebaseapp.com",
       databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
       projectId: "smart-mobility-ios",
@@ -160,31 +164,32 @@
       messagingSenderId: "727144855934",
       appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
       measurementId: "G-5SNWQ6NS22"
-    
-      };
-    
-        // Initialize Firebase
-         const app = initializeApp(firebaseConfig);
-         const database = getDatabase(app);
-    
-         saveData.addEventListener('click',(e) => {
-        var full_name = document.getElementById('full_name').value;
-        var email = document.getElementById('email').value;
-        var subject = document.getElementById('subject').value;
-        var message = document.getElementById('message').value;
-    
-        set(ref(database, 'admin-email/' + full_name), {
-    
-         full_name: full_name,
-         email: email,
-         subject: subject,
-         message: message
-    
-         });
-    
-        alert('saved');
-        });
-</script>
-    <script src="mailapp.js"></script>
- </body>
+
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    saveData.addEventListener('click', (e) => {
+      var full_name = document.getElementById('full_name').value;
+      var email = document.getElementById('email').value;
+      var subject = document.getElementById('subject').value;
+      var message = document.getElementById('message').value;
+
+      set(ref(database, 'admin-email/' + full_name), {
+
+        full_name: full_name,
+        email: email,
+        subject: subject,
+        message: message
+
+      });
+
+      alert('saved');
+    });
+  </script>
+  <script src="mailapp.js"></script>
+</body>
+
 </html>

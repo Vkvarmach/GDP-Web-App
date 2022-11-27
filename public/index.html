@@ -4,416 +4,247 @@
 <head>
   <title>Smart Mobility</title>
   <link rel="stylesheet" href="style_login.css" />
+ 
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   <!-- <script src="login.js"></script>  -->
+  <script>
+    function verifyPassword() {
+      console.log("came to function")
+      var pw = document.getElementById("password3").value;
+      var pw2 = document.getElementById("password2").value;
+      //check empty password field  
+      if (pw == "") {
+        alert("**Fill the password please!");
+        return false;
+      }
+
+      //minimum password length validation  
+      if (pw.length < 8) {
+        alert("**Password length must be atleast 8 characters");
+        return false;
+      }
+
+      //maximum length of password validation  
+      if (pw.length > 12) {
+        alert("**Password length must not exceed 12 characters");
+        return false;
+      }
+      if(pw != pw2)
+        {
+          alert("Passwords did not match");
+        } 
+       else {
+          alert("Rigistered successfully");
+        }  
+      }
+  </script>
 </head>
 
 
 <body>
 
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
 
-<div class="login-reg-panel">
-		<div class="login-info-box">
-			<h2>Have an account?</h2>
-		
-			<label id="label-register" for="log-reg-show">Login</label>
-			<input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
-		</div>
-							
-		<div class="register-info-box">
-			<h2>Don't have an account?</h2>
-			
-			<label id="label-login" for="log-login-show">Register</label>
-			<input type="radio" name="active-log-panel" id="log-login-show">
-		</div>
-							
-		<div class="white-panel">
-			<div class="login-show">
-				<h2>LOGIN</h2>
+  <div class="login-reg-panel">
+    <div class="login-info-box">
+      <h2>Have an account?</h2>
+
+      <label id="label-register" for="log-reg-show">Login</label>
+      <input type="radio" name="active-log-panel" id="log-reg-show" checked="checked">
+    </div>
+
+    <div class="register-info-box">
+      <h2>Don't have an account?</h2>
+
+      <label id="label-login" for="log-login-show">Register</label>
+      <input type="radio" name="active-log-panel" id="log-login-show">
+    </div>
+
+    <div class="white-panel">
+      <div class="login-show">
+        <h2>LOGIN</h2>
         <form>
 
-				<input type="text" id="username" placeholder="Email">
-				<input type="password" id="password1" placeholder="Password">
-				<input type="button" id="submitData1" value="Login">
-				<p class="text text-danger" id="errorlogin" style="display: none;">Email or Password incorrect</p>
-      </form>
-			</div>
-			<div class="register-show">
-      
-				<h2>REGISTER</h2>
-        <input type="text" id="Firstname" name="Firstname" placeholder="Firstname" />
-        <input type="text" id="Lastname" name="Lastname" placeholder="Lastname" />
-				<input type="text" id="email"  placeholder="Email">
-        <input type="text" id="phonenumber" name="phonenumber" placeholder="phonenumber" />
-				<input type="password" id="password3" placeholder="Password">
-				<input type="password" id="password2" placeholder="Confirm Password">
-				<input type="button" id="saveData2" value="Register">
-        <p class="text text-danger" id="error" style="display: none;">please try again</p>
-			</div>
-		</div>
-	</div>
+          <input type="text" id="username" placeholder="Email">
+          <input type="password" id="password1" placeholder="Password">
+          <input type="button" id="submitData1" value="Login">
+          <p class="text text-danger" id="errorlogin" style="display: none;">Email or Password incorrect</p>
+        </form>
+      </div>
+    
+      <div class="register-show">
+        <form onsubmit="return verifyPassword()">
+          <h2>REGISTER</h2>
+          <input type="text" id="Firstname" name="Firstname" placeholder="Firstname" />
+          <input type="text" id="Lastname" name="Lastname" placeholder="Lastname" />
+          <input type="text" id="email" placeholder="Email">
+          <input type="text" id="phonenumber" name="phonenumber" placeholder="phonenumber" />
+          <input type="password" id="password3" placeholder="Password(min 8 characters)" required>
+          <input type="password" id="password2" placeholder="Confirm Password" required>
+          <span id = "message" style="color:red"> </span> <br><br>
+          <input type="button" id="saveData2" value="Register" >
+          <p class="text text-danger" id="message1" style="display: none;">please try again</p>
+        </form>
+      </div>
+    </div>
+  </div>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
-    <style>
-         
-@import url('https://fonts.googleapis.com/css?family=Mukta');
-body{
-  font-family: 'Mukta', sans-serif;
-	height:100vh;
-	min-height:550px;
-	background-image: url(http://www.planwallpaper.com/static/images/Free-Wallpaper-Nature-Scenes.jpg);
-	background-repeat: no-repeat;
-	background-size:cover;
-	background-position:center;
-	position:relative;
-    overflow-y: hidden;
-}
-a{
-  text-decoration:none;
-  color:#444444;
-}
-.login-reg-panel{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-	text-align:center;
-    width:70%;
-	right:0;left:0;
-    margin:auto;
-    height:400px;
-    background-color: rgba(236, 48, 20, 0.9);
-}
-.white-panel{
-    background-color: rgba(255,255, 255, 1);
-    height:500px;
-    position:absolute;
-    top:-50px;
-    width:50%;
-    right:calc(50% - 50px);
-    transition:.3s ease-in-out;
-    z-index:0;
-    box-shadow: 0 0 15px 9px #00000096;
-}
-.login-reg-panel input[type="radio"]{
-    position:relative;
-    display:none;
-}
-.login-reg-panel{
-    color:#B8B8B8;
-}
-.login-reg-panel #label-login, 
-.login-reg-panel #label-register{
-    border:1px solid #9E9E9E;
-    padding:5px 5px;
-    width:150px;
-    display:block;
-    text-align:center;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight: 600;
-    font-size: 18px;
-}
-.login-info-box{
-    width:30%;
-    padding:0 50px;
-    top:20%;
-    left:0;
-    position:absolute;
-    text-align:left;
-}
-.register-info-box{
-    width:30%;
-    padding:0 50px;
-    top:20%;
-    right:0;
-    position:absolute;
-    text-align:left;
-    
-}
-.right-log{right:50px !important;}
 
-.login-show, 
-.register-show{
-    z-index: 1;
-    display:none;
-    opacity:0;
-    transition:0.3s ease-in-out;
-    color:#242424;
-    text-align:left;
-    padding:50px;
-}
-.show-log-panel{
-    display:block;
-    opacity:0.9;
-}
-.login-show input[type="text"], .login-show input[type="password"]{
-    width: 100%;
-    display: block;
-    margin:20px 0;
-    padding: 15px;
-    border: 1px solid #b5b5b5;
-    outline: none;
-}
-.login-show input[type="button"] {
-    max-width: 150px;
-    width: 100%;
-    background: #444444;
-    color: #f9f9f9;
-    border: none;
-    padding: 10px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    float:right;
-    cursor:pointer;
-}
-.login-show a{
-    display:inline-block;
-    padding:10px 0;
-}
-
-.register-show input[type="text"], .register-show input[type="password"]{
-    width: 100%;
-    display: block;
-    margin:10px 0;
-    padding: 5px;
-    border: 1px solid #b5b5b5;
-    outline: none;
-}
-.register-show input[type="button"] {
-    max-width: 150px;
-    width: 100%;
-    background: #444444;
-    color: #f9f9f9;
-    border: none;
-    padding: 10px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    float:right;
-    cursor:pointer;
-}
-.credit {
-    position:absolute;
-    bottom:10px;
-    left:10px;
-    color: #3B3B25;
-    margin: 0;
-    padding: 0;
-    font-family: Arial,sans-serif;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    z-index: 99;
-}
-a{
-  text-decoration:none;
-  color:#2c7715;
-}
-    
-    
-    
-    </style>
-</body>
-
-</html>
-<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-  import { getDatabase, set, ref,update } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
-  // import firebase from 'firebase/compat/app';
-  // import {firebase} from "firebase/app";
-  
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+      import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+      // import firebase from 'firebase/compat/app';
+      // import {firebase} from "firebase/app";
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
-      authDomain: "smart-mobility-ios.firebaseapp.com",
-      databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
-      projectId: "smart-mobility-ios",
-      storageBucket: "smart-mobility-ios.appspot.com",
-      messagingSenderId: "727144855934",
-      appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
-      measurementId: "G-5SNWQ6NS22"
-  };
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Initialize Firebase
-  console.log("login")
-  firebase.initializeApp(firebaseConfig);
-  const dbRef = firebase.database().ref("users2/");
-// const usersRef = dbRef.child('users2');
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCd7B3ME1fgepFObbhJZY2cwRqWcf_Utfs",
+        authDomain: "login-database-fe226.firebaseapp.com",
+        databaseURL: "https://login-database-fe226-default-rtdb.firebaseio.com",
+        projectId: "login-database-fe226",
+        storageBucket: "login-database-fe226.appspot.com",
+        messagingSenderId: "943948603562",
+        appId: "1:943948603562:web:0ec65eb4d90995588330d3"
+      };
 
-  // const app = initializeApp(firebaseConfig);
 
-  // const auth = getAuth();
 
-  // const database = getDatabase(app);
-  const app = initializeApp(firebaseConfig);
-         const database = getDatabase(app);
-  saveData2.addEventListener('click',(e) => {
+      
+      // Initialize Firebase
+      console.log("login")
+      firebase.initializeApp(firebaseConfig);
+      const dbRef = firebase.database().ref("users2/");
+      // const usersRef = dbRef.child('users2');
+
+      // const app = initializeApp(firebaseConfig);
+
+      // const auth = getAuth();
+
+      // const database = getDatabase(app);
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      saveData2.addEventListener('click', (e) => {
+        console.log("came to function")
+      var pw = document.getElementById("password3").value;
+      var pw2 = document.getElementById("password2").value;
+      //check empty password field  
+      if (pw == "") {
+        alert("**Fill the password please!");
+        return false;
+      }
+
+      //minimum password length validation  
+      if (pw.length < 8) {
+        alert("**Password length must be atleast 8 characters");
+        return false;
+      }
+
+      //maximum length of password validation  
+      if (pw.length > 12) {
+        alert("**Password length must not exceed 12 characters");
+        return false;
+      }
+      if(pw != pw2)
+        {
+          alert("Passwords did not match");
+        } 
+       else {
+          alert("Rigistered successfully");
+        }  
+      
         var Firstname = document.getElementById('Firstname').value;
         var Lastname = document.getElementById('Lastname').value;
         var email = document.getElementById('email').value;
         var phonenumber = document.getElementById('phonenumber').value;
         var password = document.getElementById('password3').value;
-        let formData={
+        let formData = {
           Firstname: Firstname,
-         Lastname:Lastname,
-         email: email,
-         phonenumber:phonenumber,
-         password : password
+          Lastname: Lastname,
+          email: email,
+          phonenumber: phonenumber,
+          password: password
         }
-    
+
         set(ref(database, 'users2/' + email.split(/[^A-Za-z]/)[0]), formData);
-        setTimeout(()=>{
-        window.location.href = "index.html"
-      },1500)
+        setTimeout(() => {
+          window.location.href = "index.html"
+        }, 1500)
       });
-      
-
-  submitData1.addEventListener('click', (e) => {
-    e.preventDefault();
 
 
-    var email = document.getElementById('username').value;
-    var password = document.getElementById("password1").value;
-  console.log("email",email,password)
-  // const ref =database.ref('users2/');
-
-  dbRef.on("child_added", function(snapshot,prevChildKey) {
-    // var em=email.split(/[^A-Za-z]/)[0];
-    // console.log("em",em);
-    var data = snapshot.val();
-  //  console.log("data=",data.email,data,password);
-   if(data.email==email&&data.password==password){
-    console.log("success");
-    window.location.assign("Dashboard.html");
-   }
-   else{
-    console.log("no")
-    document.getElementById("errorlogin").style.display="block";
-   }
-}, function (error) {
-   console.log("Error: " + error.code);
-});
-    
-        // createUserWithEmailAndPassword(auth, email, password)
-        //   .then((userCredential) => {
-        //     // Signed in 
-        //     const user = userCredential.user;
-        //     // ...
-    
-        //     set(ref(database, 'users/' + user.uid), {
-    
-        //       email: email,
-        //       password: password,
-    
-        //     })
-    
-        //   .then(() => {
-        //       // Data saved successfully!
-    
-        //       window.location.assign("index.html");
-        //       alert("Login succesfully");
-        //     })
-        //       .catch((error) => {
-        //         // The write failed...
-        //         alert("Error");
-        //       });
-    
-    
-        //   })
-        //   .catch((error) => {
-        //     const errorCode = error.code;
-        //     const errorMessage = error.message;
-        //     // ..
-        //     alert("Login failed");
-    
-        //   });
-    
-  //  const auth=getAuth();
-  //   signInWithEmailAndPassword(auth,email, password)
-  //  .then((userCredential)=> {
-  //      // Success 
-  //      const user=userCredential.user;
-       
-  //           alert("Login succesfully");
-  //  })
-  // .catch(function(error) {
-  //      // Error Handling
-  //      alert("Error");
-  // });
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     // Signed in 
-    //     const user = userCredential.user;
-    //     // ...
-
-    //     var lgDate = new Date();
-    //     // update(ref(database, 'users2/' + user.uid), {
-
-    //     //   last_login: lgDate,
-
-    //     // })
-
-    //     //   .then(() => {
-    //         // Data saved successfully!
-
-    //         window.location.assign("Dashboard.html");
-    //         alert("Login succesfully");
-    //       // })
-    //       // .catch((error) => {
-    //       //   // The write failed...
-    //       //   alert("Error");
-    //       // });
-
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     alert(errorMessage);
-    //   });
-
-  });
-
-  $(document).ready(function(){
-    $('.login-info-box').fadeOut();
-    $('.login-show').addClass('show-log-panel');
-});
+      submitData1.addEventListener('click', (e) => {
+        e.preventDefault();
 
 
-$('.login-reg-panel input[type="radio"]').on('change', function() {
-    if($('#log-login-show').is(':checked')) {
-        $('.register-info-box').fadeOut(); 
-        $('.login-info-box').fadeIn();
-        
-        $('.white-panel').addClass('right-log');
-        $('.register-show').addClass('show-log-panel');
-        $('.login-show').removeClass('show-log-panel');
-        
-    }
-    else if($('#log-reg-show').is(':checked')) {
-        $('.register-info-box').fadeIn();
+        var email = document.getElementById('username').value;
+        var password = document.getElementById("password1").value;
+        console.log("email", email, password)
+        // const ref =database.ref('users2/');
+
+        dbRef.on("child_added", function (snapshot, prevChildKey) {
+          // var em=email.split(/[^A-Za-z]/)[0];
+          // console.log("em",em);
+          var data = snapshot.val();
+          //  console.log("data=",data.email,data,password);
+          if (data.email == email && data.password == password) {
+            console.log("success");
+            window.location.assign("Dashboard.html");
+          }
+          else {
+            console.log("no")
+            document.getElementById("errorlogin").style.display = "block";
+          }
+        }, function (error) {
+          console.log("Error: " + error.code);
+        });
+
+
+      });
+
+      $(document).ready(function () {
         $('.login-info-box').fadeOut();
-        
-        $('.white-panel').removeClass('right-log');
-        
         $('.login-show').addClass('show-log-panel');
-        $('.register-show').removeClass('show-log-panel');
-    }
-});
-  
+      });
+
+
+      $('.login-reg-panel input[type="radio"]').on('change', function () {
+        if ($('#log-login-show').is(':checked')) {
+          $('.register-info-box').fadeOut();
+          $('.login-info-box').fadeIn();
+
+          $('.white-panel').addClass('right-log');
+          $('.register-show').addClass('show-log-panel');
+          $('.login-show').removeClass('show-log-panel');
+
+        }
+        else if ($('#log-reg-show').is(':checked')) {
+          $('.register-info-box').fadeIn();
+          $('.login-info-box').fadeOut();
+
+          $('.white-panel').removeClass('right-log');
+
+          $('.login-show').addClass('show-log-panel');
+          $('.register-show').removeClass('show-log-panel');
+        }
+      });
+
 
 </script>
+
+</body>
+
+</html>

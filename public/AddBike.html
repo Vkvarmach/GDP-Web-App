@@ -5,9 +5,14 @@
   <title>Login | By Code Info</title>
   <link rel="stylesheet" href="AddBike.css" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"
+  href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8"
+  src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <!-- <script src="login.js"></script>  -->
 </head>
 
@@ -15,7 +20,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container-fluid">
-      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1>  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -60,22 +65,19 @@
           </svg>
     </h3>
    
-        <form action="" class="AddBike"  id="AddBike">
+      <form action="" class="AddBike"  id="AddBike">
+        <label  class="form-label">latitude</label>
+          <input type="text" placeholder="Enter latitude" class="form-control"  id="lat" required/>
+          <label  class="form-label">longitude</label>
+          <input type="text" placeholder="Enter longitude" class="form-control"  id="long" required/>
+          <label class="form-label">Model</label>
+      <input type="text" placeholder="Enter Type" class="form-control"  id="biketype" required/>
+        <label  class="form-label">Bike ID</label>
+      <input type="text" placeholder="Enter Uique ID" class="form-control"  id="bikeId" required/>  
       <label  class="form-label">Location</label>
       <input type="text" placeholder="Enter Location" class="form-control"  id="bikelocation" required/>
-      <label class="form-label">Type</label>
-      <input type="text" placeholder="Enter Type" class="form-control"  id="biketype" required/>
-      <label class="form-label">Description</label>
-      <input type="text" placeholder="Enter Description" class="form-control"  id="bikedescription" required/>
-      <!-- <label for="bike cc">Bike CC:</label> -->
-      <!-- <select id="bikeCC" name="cars">
-        <option value="150cc ">150cc Bike</option>
-        <option value="100cc">100cc Bike</option>
-        <option value="50cc">50cc Bike</option>
-        <option value="other">other</option>
-      </select> -->
-      <!--  <input type="button" value="Submit" onclick="validate()" /> -->
-
+      <label class="form-label">Vechicle_NO</label>
+      <input type="text" placeholder="Enter vehicleNo" class="form-control"  id="vehicleNo" required/>
       <button type="button" id="submitData" name="submitData" class="registerbtn btn btn-success" style="width: 80px;">ADD</button>
     </form>
   </div>
@@ -89,15 +91,14 @@
     // https://firebase.google.com/docs/web/setup#available-libraries
     var BikeLength;
     // Your web app's Firebase configuration
-    const firebaseConfig = {
-    apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
-    authDomain: "smart-mobility-ios.firebaseapp.com",
-    databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
-    projectId: "smart-mobility-ios",
-    storageBucket: "smart-mobility-ios.appspot.com",
-    messagingSenderId: "727144855934",
-    appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
-    measurementId: "G-5SNWQ6NS22"
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNY2MVCUfiI1LqByI4YF4oTEsQng30HGk",
+    authDomain: "smart-mobility-ios-efda2.firebaseapp.com",
+    databaseURL: "https://smart-mobility-ios-efda2-default-rtdb.firebaseio.com",
+    projectId: "smart-mobility-ios-efda2",
+    storageBucket: "smart-mobility-ios-efda2.appspot.com",
+    messagingSenderId: "44677531674",
+    appId: "1:44677531674:web:acb74fc514d429ff7429a3"
   };
   
       // Initialize Firebase
@@ -105,25 +106,29 @@
        const database = getDatabase(app);
   
        submitData.addEventListener('click',(e) => {
-      var bikeid = BikeLength+1;
+      var latitude = document.getElementById("lat").value
+      var longitude = document.getElementById("long").value
+      var bikeid = document.getElementById("bikeId").value
       var bikeLocation = document.getElementById('bikelocation').value;
       var biketype = document.getElementById('biketype').value;
-      var bikedescription = document.getElementById('bikedescription').value;
+      var vehicleNo = document.getElementById('vehicleNo').value;
       let formData={
-        bikeid: bikeid,
-        bikeLocation:bikelocation.value,
-        biketype:biketype,
-        discription:bikedescription
+        latitude:latitude,
+        longitude:longitude,
+        model:biketype,
+        name:bikeLocation,
+        qrCode: bikeid,
+        vehicleNo:vehicleNo
       }
       console.log(formData)
-      set(ref(database, 'bikes/'+bikeid), formData);
+      set(ref(database, 'bikes_details/'+ bikeid), formData);
       alert("Bike added succesfully")
       window.location.href = "m_Bikes.html";
       });
 
       
       function GetalldataRealtime() {
-            const databaseRef = ref(database, "bikes/");
+            const databaseRef = ref(database, "bikes_details/");
 
             onValue(databaseRef, (snapshot) => {
                 var users = [];

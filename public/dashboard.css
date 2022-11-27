@@ -1,10 +1,10 @@
-body{
-    background-color: lightgreen;
-    font-family: Arial, Helvetica, sans-serif;
-}
-h1{
-    font: medium;
-    text-align: center;
-    padding: 30px;
-    background-color:greenyellow ;
-}
+
+.about{
+    font-size: 30px;
+    font-weight: 600;
+    background-image: conic-gradient(  #0084cb 66%,#0084cb 66%);
+    color:transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+

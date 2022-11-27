@@ -2,16 +2,29 @@
 <html lang="en">
 
 <head>
-    <title>Block Rider</title>
-    <link rel="stylesheet" href="blockrider.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Block Rider</title>
+  <link rel="stylesheet" href="blockrider.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
+
 <body>
-  
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container-fluid">
-      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobilityr/b></a></h1>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,81 +47,80 @@
           <li class="nav-item">
             <a class="nav-link  " aria-current="page" href="r_issues.html">Rider Issues</a>
           </li>
-           
+
           <li class="nav-item">
             <a class="nav-link  " aria-current="page" href="index.html">Log out</a>
           </li>
-          
+
         </ul>
-        
+
       </div>
     </div>
   </nav>
- 
 
-     
-    <br><br><br><br>
-    <div class="contents" style="width: 300px;">
-      
-      <h4 style="margin-left: -2px;">Block Rider</h4>
-      <form action="/action_page.php">
-        <div class="mb-3 mt-3">
-          <label for="email" class="form-label">ID:</label>
-          <input type="email" class="form-control" id="id" placeholder="Enter rider ID" name="email">
-        </div>
-        <div class="mb-3">
-          <label for="pwd" class="form-label ">Reason For Blocking:</label>
-          <select class="form-control"id="dropdown">
-            <option>---- Select ----</option>
-            <option>Bad bheaviour with customer care</option>
-            <option>Damaged the bike</option>
-            <option>Not Following traffic rules</option>
-            <option>Other</option>
+
+
+  <br><br><br><br>
+  <div class="contents" style="width: 300px;">
+
+    <h4 style="margin-left: -2px;">Block Rider</h4>
+    <form action="/action_page.php">
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email ID:</label>
+        <input type="email" class="form-control" id="email" placeholder="enter rider email" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label ">Reason For Blocking:</label>
+        <select class="form-control" id="dropdown">
+          <option>---- Select ----</option>
+          <option>Bad bheaviour with customer care</option>
+          <option>Damaged the bike</option>
+          <option>Not Following traffic rules</option>
+          <option>Other</option>
         </select>
-        </div>
-        <button type="submit" id="submitData"class=" container btn btn-danger" style="width: 150px;">Block</button>
-      </form>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+      </div>
+      <button type="submit" id="submitData" class=" container btn btn-danger" style="width: 150px;">Block</button>
+    </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
     import { getDatabase, ref, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-    apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
-    authDomain: "smart-mobility-ios.firebaseapp.com",
-    databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
-    projectId: "smart-mobility-ios",
-    storageBucket: "smart-mobility-ios.appspot.com",
-    messagingSenderId: "727144855934",
-    appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
-    measurementId: "G-5SNWQ6NS22"
-  };
-  
-      // Initialize Firebase
-       const app = initializeApp(firebaseConfig);
-       const database = getDatabase(app);
-  
-       submitData.addEventListener('click',(e) => {
-        e.preventDefault();
-        
-      var id = document.getElementById('id').value;
-      var Reason=document.getElementById('dropdown').value;
-      console.log(id,Reason)
 
-      update(ref(database, 'riders/' + id),{
+       // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNY2MVCUfiI1LqByI4YF4oTEsQng30HGk",
+    authDomain: "smart-mobility-ios-efda2.firebaseapp.com",
+    databaseURL: "https://smart-mobility-ios-efda2-default-rtdb.firebaseio.com",
+    projectId: "smart-mobility-ios-efda2",
+    storageBucket: "smart-mobility-ios-efda2.appspot.com",
+    messagingSenderId: "44677531674",
+    appId: "1:44677531674:web:acb74fc514d429ff7429a3"
+  };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    submitData.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      var email = document.getElementById('email').value;
+      var Reason = document.getElementById('dropdown').value;
+      console.log(email, Reason);
+
+      set(ref(database, 'smart_mobility/users' + email), {
         blockStatus: "Yes",
-        blockReason: Reason, 
+        blockReason: Reason,
       })
       alert('updated');
-      setTimeout(()=>{
+      setTimeout(() => {
         window.location.href = "m_riders.html";
-      },1000)
-      
+      }, 1000)
+
     });
 
       // set(ref(database, 'riderIssues/' + issueId), {
@@ -120,11 +132,12 @@
       // });
       // alert('Blocked');
       // });
-      
-      
-  
-     
+
+
+
+
   </script>
+  <br><br><br>
 </body>
 
 </html>

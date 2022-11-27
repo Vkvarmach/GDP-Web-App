@@ -26,7 +26,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
-         <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
+         <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+         
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -65,7 +66,7 @@
         placeholder="Search here" style="width: 500px;">
     <div class="container mt-3">
         <br>
-        <h1>Manage Locations</h1>
+        <h2>Manage Locations</h2>
          <!-- <a class="btn btn-success" id="button1" onclick="deleteclicked()">Delete Location</a>  -->
          <!-- <input class="form-control" id="delete" type="text" 
         placeholder="enter Location" style="width: 250px;display: none; margin-left: 200px;"> -->
@@ -118,6 +119,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase
 
             let td9 = document.createElement("BUTTON");
             td9.className = "btn btn-danger";
+            
             td9.id="Delete_Location";
             td9.style.marginLeft="20px";
             td9.onclick=()=>{};
@@ -126,8 +128,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase
             // },flase);
 
             // td9 = document.querySelector('button');
-            td9.addEventListener('click', delLocation, false);
-            td9.myParam = bikeLocation;
+            td9.addEventListener('click', delLocation, true);
+            td9.myParam =bikeLocation;
 // function myFunc(evt)
 // {
 //   window.alert(evt.currentTarget.myParam);
@@ -140,14 +142,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase
             td3.innerHTML = noOfBike;
             //td7.innerHTML = "Add +";
             //td8.innerHTML = "Delete -";
-            td9.innerHTML = "Delete Locations -";
+            td9.innerHTML = "Delete Location -";
 
 
             trow.appendChild(td1);
             trow.appendChild(td2);
             trow.appendChild(td3);
-            //trow.appendChild(td7);
-            //trow.appendChild(td8);
+           // trow.appendChild(td7);
+           // trow.appendChild(td8);
             trow.appendChild(td9);
 
             tbody.appendChild(trow);
@@ -158,17 +160,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase
         // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
         //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
-            authDomain: "smart-mobility-ios.firebaseapp.com",
-            databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
-            projectId: "smart-mobility-ios",
-            storageBucket: "smart-mobility-ios.appspot.com",
-            messagingSenderId: "727144855934",
-            appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
-            measurementId: "G-5SNWQ6NS22"
-        };
+       // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNY2MVCUfiI1LqByI4YF4oTEsQng30HGk",
+    authDomain: "smart-mobility-ios-efda2.firebaseapp.com",
+    databaseURL: "https://smart-mobility-ios-efda2-default-rtdb.firebaseio.com",
+    projectId: "smart-mobility-ios-efda2",
+    storageBucket: "smart-mobility-ios-efda2.appspot.com",
+    messagingSenderId: "44677531674",
+    appId: "1:44677531674:web:acb74fc514d429ff7429a3"
+  };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -197,7 +198,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase
         //---------------------------Getting ALL Data---------------------------------------------------------------------//
         function GetalldataOnce() {
             const databaseRef = ref(database);
-            get(child(databaseRef, "manage-bikes/"))
+            get(child(databaseRef, "bikes_details/"))
                 .then((snapshot) => {
                     var users = [];
                     snapshot.forEach(childSnapshot => {
@@ -210,7 +211,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase
         function GetalldataRealtime() {
             
             
-            const databaseRef = ref(database, "bikes/");
+            const databaseRef = ref(database, "bikes_details/");
 
             onValue(databaseRef, (snapshot) => {
                 var users = [];
@@ -221,7 +222,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase
                 });
                 console.log("length",users.length)
                 users.forEach(element => {
-                bikes.push(element.bikeLocation);
+                bikes.push(element.name);
                 
             });
             console.log("bikes111",bikes)
@@ -255,20 +256,19 @@ function delLocation(evt) {
  // https://firebase.google.com/docs/web/setup#available-libraries
  
  // Your web app's Firebase configuration
-//  window.alert(evt.currentTarget.myParam);
+
  const firebaseConfig = {
- apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
- authDomain: "smart-mobility-ios.firebaseapp.com",
- databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
- projectId: "smart-mobility-ios",
- storageBucket: "smart-mobility-ios.appspot.com",
- messagingSenderId: "727144855934",
- appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
- measurementId: "G-5SNWQ6NS22"
-};
+      apiKey: "AIzaSyBNY2MVCUfiI1LqByI4YF4oTEsQng30HGk",
+      authDomain: "smart-mobility-ios-efda2.firebaseapp.com",
+      databaseURL: "https://smart-mobility-ios-efda2-default-rtdb.firebaseio.com",
+      projectId: "smart-mobility-ios-efda2",
+      storageBucket: "smart-mobility-ios-efda2.appspot.com",
+      messagingSenderId: "44677531674",
+      appId: "1:44677531674:web:acb74fc514d429ff7429a3"
+    };
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-const databaseRef = ref(database, "bikes/");
+const databaseRef = ref(database, "bikes_details/");
 
     
 var users = [];
@@ -284,9 +284,9 @@ var users = [];
          });
          console.log(users.length)
              users.forEach(element => {
-              var value=document.getElementById('delete').value;
-               if(element.bikeLocation==evt.currentTarget.myParam){
-                 remove(ref(database, 'bikes/' + element.bikeid));
+              var qrCode=document.getElementById('Delete_Location').value;
+               if(element.name==evt.currentTarget.myParam){
+                 remove(ref(database, 'bikes_details/' + element.qrCode));
                }
             
          });
@@ -299,6 +299,11 @@ var users = [];
       
 //       });
     </script>
+    <style>
+       .btn { background-color:rgb(228, 31, 31);}
+      </style>
+  
+    <br><br>
 </body>
 <script>
   $(document).ready(function() {

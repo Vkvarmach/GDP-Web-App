@@ -2,16 +2,15 @@
   margin: auto;
   padding: auto;
 }
-/*
-h1 {
+
+.sm {
   font-family:'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   height: 60px;
   width: auto;
-  color: whitesmoke;
-  background-color: green;
-
+  color: white;
+  text-align: inherit;
 }
-*/
+
 
 .sec{
   position: relative;

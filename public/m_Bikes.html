@@ -2,193 +2,198 @@
 <html lang="en">
 
 <head>
-    <title>M_bikes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-      <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <title>M_bikes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
- 
+
 <body>
 
-    <link rel="stylesheet" href="riders.css">
- 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <div class="container-fluid">
-          <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link  " aria-current="page" href="Dashboard.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  " aria-current="page" href="m_riders.html">Manage Riders</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  bg-dark active" aria-current="page" href="m_Bikes.html">Manage Bikes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  " aria-current="page" href="r_history.html">Ride History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  " aria-current="page" href="m_locations.html">Manage Locations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  " aria-current="page" href="r_issues.html">Rider Issues</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link  " aria-current="page" href="index.html">Log out</a>
-              </li>
-              
-            </ul>
-            
-          </div>
-        </div>
-      </nav>
-      <br>
-      <input class="form-control container" id="gfg" type="text" 
-      placeholder="Search here" style="width: 500px;">
-  
+  <link rel="stylesheet" href="riders.css">
 
-    <div class="container mt-3">
-        
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="Dashboard.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="m_riders.html">Manage Riders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  bg-dark active" aria-current="page" href="m_Bikes.html">Manage Bikes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="r_history.html">Ride History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="m_locations.html">Manage Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="r_issues.html">Rider Issues</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link  " aria-current="page" href="index.html">Log out</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <br>
+  <input class="form-control container" id="gfg" type="text" placeholder="Search here" style="width: 500px;">
+
+
+  <div class="container mt-3">
+
     <h2>Manage Bikes</h2>
 
-    
- 
-    <a href="AddBike.html"> <button class="btna" >Add +</button></a>
-    <a href="DeleteBike.html"> <button class="btnd" >Delete -</button></a>
-    <a href="ModifyBikes.html"> <button class="btnm" >Modify *</button></a>
-        <div class="container mt-3">
-          <table class="table">
-            <thead>
-                <tr>
-                    <th>Bike_Sno</th>
-                    <th>Id</th>
-                    <th>Location</th>
-                    <th>Discription</th>
-                    <th>Type</th>
-                </tr>
-            </thead>
-            <tbody id="tbody1"></tbody>
-           
-        </table>
+
+
+    <a href="AddBike.html"> <button class="btna">Add +</button></a>
+    <a href="DeleteBike.html"> <button class="btnd">Delete -</button></a>
+    <a href="ModifyBikes.html"> <button class="btnm">Modify *</button></a>
+    <div class="container mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Bike_Sno</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Model</th>
+            <th>Location</th>
+            <th>Unique_ID</th>
+            <th>Vechicle_NO</th>
+          </tr>
+        </thead>
+        <tbody id="tbody1"></tbody>
+
+      </table>
     </div>
-   
+
 
 
     <script type="module">
 
-        var userNo = 0;
-        var tbody = document.getElementById('tbody1');
+      var userNo = 0;
+      var tbody = document.getElementById('tbody1');
 
 
 
-        function addItemToTable(Id, Location,discription,type) {
-            let trow = document.createElement("tr");
-            let td1 = document.createElement("td");
-            let td2 = document.createElement("td");
-            let td3 = document.createElement("td");
-            let td4 = document.createElement("td");
-            let td5 = document.createElement("td");
+      function mb_addItemToTable(Latitude, Longitude, Model, Location, QrCode, Vechicle_NO) {
+        let trow = document.createElement("tr");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        let td4 = document.createElement("td");
+        let td5 = document.createElement("td");
+        let td6 = document.createElement("td");
+        let td7 = document.createElement("td");
 
 
-            td1.innerHTML = ++userNo;
-            td2.innerHTML = Id;
-            td3.innerHTML = Location;
-            td4.innerHTML = discription;
-            td5.innerHTML = type;
+        td1.innerHTML = ++userNo;
+        td2.innerHTML = Latitude;
+        td3.innerHTML = Longitude
+        td4.innerHTML = Model;
+        td5.innerHTML = Location;
+        td6.innerHTML = QrCode;
+        td7.innerHTML = Vechicle_NO;
+
+        trow.appendChild(td1);
+        trow.appendChild(td2);
+        trow.appendChild(td3);
+        trow.appendChild(td4);
+        trow.appendChild(td5);
+        trow.appendChild(td6);
+        trow.appendChild(td7);
+
+        tbody.appendChild(trow);
+      }
 
 
-            trow.appendChild(td1);
-            trow.appendChild(td2);
-            trow.appendChild(td3);
-            trow.appendChild(td4);
-            trow.appendChild(td5);
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+      //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
 
-            tbody.appendChild(trow);
-        }
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBNY2MVCUfiI1LqByI4YF4oTEsQng30HGk",
+        authDomain: "smart-mobility-ios-efda2.firebaseapp.com",
+        databaseURL: "https://smart-mobility-ios-efda2-default-rtdb.firebaseio.com",
+        projectId: "smart-mobility-ios-efda2",
+        storageBucket: "smart-mobility-ios-efda2.appspot.com",
+        messagingSenderId: "44677531674",
+        appId: "1:44677531674:web:acb74fc514d429ff7429a3"
+      };
 
-
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-        //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDghAAvMSGvON4Lmd-jop0VyjOiAC5t8lM",
-            authDomain: "smart-mobility-ios.firebaseapp.com",
-            databaseURL: "https://smart-mobility-ios-default-rtdb.firebaseio.com",
-            projectId: "smart-mobility-ios",
-            storageBucket: "smart-mobility-ios.appspot.com",
-            messagingSenderId: "727144855934",
-            appId: "1:727144855934:web:2ca21a0d262114a85ddb2f",
-            measurementId: "G-5SNWQ6NS22"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        //const analytics = getAnalytics(app);
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      //const analytics = getAnalytics(app);
 
 
-        import { getDatabase, ref, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
-        const database = getDatabase(app);
+      import { getDatabase, ref, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+      const database = getDatabase(app);
 
-        function AddALLItemsToTable(TheUser) {
-            console.log(TheUser);
-            userNo = 0;
-            tbody.innerHTML = "";
-            TheUser.forEach(element => {
-                addItemToTable(element.bikeid, element.bikeLocation,element.discription,element.biketype)
-            });
+      function mb_AddALLItemsToTable(TheUser) {
+        console.log(TheUser);
+        userNo = 0;
+        tbody.innerHTML = "";
+        TheUser.forEach(element => {
+          mb_addItemToTable(element.latitude, element.longitude, element.model, element.name, element.qrCode, element.vehicleNo)
+        });
 
-        }
-
-
-        //---------------------------Getting ALL Data---------------------------------------------------------------------//
-
-        function GetalldataOnce() {
-            const databaseRef = ref(database);
-
-            get(child(databaseRef, "manage-bikes/"))
-                .then((snapshot) => {
-                    var users = [];
-
-                    snapshot.forEach(childSnapshot => {
-                        users.push(childSnapshot.val());
-
-                    });
-                    AddALLItemsToTable(users);
-
-                });
-        }
+      }
 
 
+      //---------------------------Getting ALL Data---------------------------------------------------------------------//
 
-        function GetalldataRealtime() {
-            const databaseRef = ref(database, "bikes/");
+      function GetalldataOnce() {
+        const databaseRef = ref(database);
 
-            onValue(databaseRef, (snapshot) => {
-                var users = [];
+        get(child(databaseRef, "bikes_details/"))
+          .then((snapshot) => {
+            var users = [];
 
-                snapshot.forEach(childSnapshot => {
-                    users.push(childSnapshot.val());
-
-                });
-                console.log(users.length)
-                AddALLItemsToTable(users);
+            snapshot.forEach(childSnapshot => {
+              users.push(childSnapshot.val());
 
             });
-        }
-        window.onload = GetalldataRealtime;
+            mb_AddALLItemsToTable(users);
+
+          });
+      }
+
+
+
+      function mb_GetalldataRealtime() {
+        const databaseRef = ref(database, "bikes_details/");
+
+        onValue(databaseRef, (snapshot) => {
+          var users = [];
+
+          snapshot.forEach(childSnapshot => {
+            users.push(childSnapshot.val());
+
+          });
+          console.log(users.length)
+          mb_AddALLItemsToTable(users);
+
+        });
+      }
+      window.onload = mb_GetalldataRealtime;
 
 
 
@@ -196,19 +201,20 @@
     </script>
 
 
-
+    <br><br><br>
 </body>
 
- 
+
 <script>
-$(document).ready(function() {
-    $("#gfg").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#tbody1 tr").filter(function() {
-            $(this).toggle($(this).text()
-            .toLowerCase().indexOf(value) > -1)
-        });
+  $(document).ready(function () {
+    $("#gfg").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#tbody1 tr").filter(function () {
+        $(this).toggle($(this).text()
+          .toLowerCase().indexOf(value) > -1)
+      });
     });
-});
+  });
 </script>
+
 </html>

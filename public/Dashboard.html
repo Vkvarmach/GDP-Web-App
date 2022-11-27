@@ -2,118 +2,97 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-       
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <title>Smart-Mobility | Dashboard</title>
 
-  <title>webpage</title>
+  <link rel="stylesheet" href="dashboard.css" />
 
-  <script type="module" src="Dashboard.js"></script>
-  
 
 </head>
 
 <body>
 
-  <link rel="stylesheet" href="style.css"> 
+
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-success ">
     <div class="container-fluid">
-      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1> 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <h1><a class="navbar-brand" href="Dashboard.html"><b>Smart Mobility</b></a></h1>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Dashboard.html">Home</a>
+            <a class="nav-link  bg-dark  active" aria-current="page" href="Dashboard.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="m_riders.html">Manage Riders</a>
+            <a class="nav-link " aria-current="page" href="m_riders.html">Manage Riders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="m_Bikes.html">Manage Bikes</a>
+            <a class="nav-link " aria-current="page" href="m_Bikes.html">Manage Bikes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="r_history.html">Ride History</a>
+            <a class="nav-link" aria-current="page" href="r_history.html">Ride History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="m_locations.html">Manage Locations</a>
+            <a class="nav-link" aria-current="page" href="m_locations.html">Manage Locations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="r_issues.html">Rider Issues</a>
+            <a class="nav-link" aria-current="page" href="r_issues.html">Rider Issues</a>
           </li>
-          
+
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.html">Log out</a>
           </li>
-          
+
         </ul>
-        
+
       </div>
     </div>
   </nav>
 
-  <!-- <div class="container">
-  <section class="sec">
+  <br><br><br>
+  <section>
+    <div class="container">
+      <h2 class="about">About Project</h2><br>
+      <h6>This is a Admin website which can displays and manages Smart-Mobility-iOS application riders information ,
+        bikes information , riders history , locations and can able to interact riders by sending email notifications.
+      </h6>
+      <h6><br>By placing rental bikes in specified parking perimeters, the Smart-Mobility-iOS Application aims to
+        provide a commuter facility.
+        When using an iOS application for the first time, a user must register before they can log in. After choosing
+        their source and destination, they must scan the QR code on the bike to begin their ride.
+        Once they have arrived at their destination, they must end it.The ride price will appear based on the time
+        needed to get there.
+        .</h6><br><br>
+      <div class="col-xs-6">
+        <img class="img-responsive" src="movingbike.jpg" />
+      </div> <br><br>
+      <div>
+        <h2 class="about">Contact information</h2><br>
+        <i style="font-size:30px" class="fa">&#xf09b;</i>&emsp;&emsp;<a
+          href="https://github.com/eppalapellisatheesh/GDP-Web-App">Github</a><br><br><br>
+        <h6><b>Email:</b>&emsp; gdpproject34@gmail.com</h6><br><br>
+      </div>
+    </div>
+  </section>
   
-      <a href="m_riders.html">
-      <button class="button button12">Manage Riders</button>
-      </a>
-    <br>
-    <br>
-    <a href="m_Bikes.html">
-    <button class="button button2">Manage Bikes </button>
-  </a>
-    <br>
-    <br>
-    <a href="r_history.html">
-    <button class="button button3">Ride History </button>   
-    </a>
-    
-    <br>
-    <br>
-    <a href="m_locations.html">
-    <button class="button button4">Manage Locations</button></a>
-    <br>
-    <br>
-    <a href="r_issues.html">
-    <button class="button button4">Rider Issues </button></a>
-    <br>
-    <br>
-    <a href="signup.html">
-      <button class="button button5">Sign-up </button>
-    </a>
-    <br>
-  </section> -->
-  <!--
-  
-  <div class="aboutus">
-    <h4>About us</h4>
-    <pre>
-      A world-class platform for connecting bike owners
-      with active people wishing to rent or borrow bikes
-      is offered by Smart Mobility, a leading provider of
-      bike rental and sharing services.Through our service,
-      owners can sell their bikes, renters can look for a bike
-      in any location they like, and the rental process can be
-      completed quickly and efficiently via our mobile app.
-      To ensure everyone is content,we even provide a variety
-      of delivery options.
-    </pre>
-  </div> 
--->
-
-  <div class="image">
-    <img src="/img/movingbike.jpg" alt="Bike">
-  </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
-
-
 </body>
 
 </html>
